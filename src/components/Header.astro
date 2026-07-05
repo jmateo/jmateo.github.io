@@ -1,0 +1,98 @@
+---
+interface Props {
+  locale: 'en' | 'fr';
+}
+
+const { locale } = Astro.props;
+
+const menuItems = {
+  en: [
+    { label: 'About GenevaJug', href: '#about' },
+    { label: 'Past sessions', href: '#past-sessions' },
+    { label: 'Next session', href: '#next-session' },
+  ],
+  fr: [
+    { label: 'À propos de GenevaJug', href: '#about' },
+    { label: 'Sessions passées', href: '#past-sessions' },
+    { label: 'Prochaine session', href: '#next-session' },
+  ],
+};
+
+const items = menuItems[locale];
+---
+
+<header class="header">
+  <div class="header-container">
+    <div class="logo">
+      <a href={locale === 'en' ? '/' : '/fr'}>GenevaJUG</a>
+    </div>
+    <nav class="nav">
+      <ul class="nav-list">
+        {items.map((item) => (
+          <li class="nav-item">
+            <a href={item.href} class="nav-link">{item.label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header {
+    background-color: #007bff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo a {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .logo a:hover {
+    color: #e0e0e0;
+  }
+
+  .nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;
+  }
+
+  .nav-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .nav-link:hover {
+    color: #e0e0e0;
+  }
+
+  @media (max-width: 768px) {
+    .header-container {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .nav-list {
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+  }
+</style>

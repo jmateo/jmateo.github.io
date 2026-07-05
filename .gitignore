@@ -4,3 +4,10 @@
 /_site/
 /.project
 .idea/
+
+# Astro
+dist/
+.astro/
+node_modules/
+.env
+.env.local
