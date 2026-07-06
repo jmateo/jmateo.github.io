@@ -47,5 +47,13 @@ export function getSpeakers(): Speaker[] {
     })
     .sort((a, b) => a.name.localeCompare(b.name));
 
-  return speakers;
+  // Deduplicate speakers by name, keeping the first occurrence
+  const seenNames = new Set<string>();
+  return speakers.filter((speaker) => {
+    if (seenNames.has(speaker.name)) {
+      return false;
+    }
+    seenNames.add(speaker.name);
+    return true;
+  });
 }

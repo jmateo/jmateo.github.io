@@ -23,6 +23,35 @@ function getSpeakerNames(speakerIds: string | string[]): string {
     .map(id => speakers.find(s => s.id === id)?.name || id)
     .join(', ');
 }
+
+function stripHtmlAndGetPreview(html: string, maxLength: number = 150): string {
+  const entities: Record<string, string> = {
+    '&amp;': '&',
+    '&lt;': '<',
+    '&gt;': '>',
+    '&quot;': '"',
+    '&apos;': "'",
+    '&#39;': "'",
+    '&nbsp;': ' ',
+  };
+
+  let text = html
+    .replace(/<[^>]*>/g, ''); // Remove all HTML tags
+
+  // Decode numeric entities first (&#39; &#x27;)
+  text = text.replace(/&#(\d+);/g, (match, dec) => String.fromCharCode(parseInt(dec, 10)));
+  text = text.replace(/&#x([0-9a-f]+);/gi, (match, hex) => String.fromCharCode(parseInt(hex, 16)));
+
+  // Decode named entities
+  Object.entries(entities).forEach(([entity, char]) => {
+    text = text.replace(new RegExp(entity.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'), char);
+  });
+
+  // Normalize whitespace
+  text = text.replace(/\s+/g, ' ').trim();
+
+  return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
+}
 ---
 
 <section id="past-sessions" class="past-sessions">
@@ -46,12 +75,7 @@ function getSpeakerNames(speakerIds: string | string[]): string {
                 </p>
               )}
               <div class="session-description">
-                {post.content
-                  .split('\n')
-                  .filter(line => line.trim())
-                  .slice(0, 3)
-                  .join(' ')
-                  .substring(0, 150)}...
+                {stripHtmlAndGetPreview(post.content, 150)}
               </div>
             </div>
           </a>
