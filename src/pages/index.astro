@@ -1,9 +1,12 @@
 ---
 import Header from '../components/Header.astro';
+import PastSessions from '../components/PastSessions.astro';
+import Speakers from '../components/Speakers.astro';
+import Sponsors from '../components/Sponsors.astro';
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -16,35 +19,41 @@ import Header from '../components/Header.astro';
         box-sizing: border-box;
       }
 
+      :root[data-theme='light'] {
+        --bg-primary: #ffffff;
+        --bg-secondary: #f0f0f0;
+        --text-primary: #000000;
+        --text-secondary: #333333;
+        --text-muted: #666666;
+        --border-color: #e0e0e0;
+      }
+
+      :root[data-theme='dark'] {
+        --bg-primary: #1a1a1a;
+        --bg-secondary: #2a2a2a;
+        --text-primary: #ffffff;
+        --text-secondary: #cccccc;
+        --text-muted: #999999;
+        --border-color: #444444;
+      }
+
       body {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
           'Helvetica Neue', Arial, sans-serif;
         line-height: 1.6;
-        background: #ffffff;
-        color: #1a1a1a;
-      }
-
-      @media (prefers-color-scheme: dark) {
-        body {
-          background: #1a1a1a;
-          color: #ffffff;
-        }
+        background: var(--bg-primary);
+        color: var(--text-secondary);
+        transition: background-color 0.3s ease, color 0.3s ease;
       }
 
       .hero {
         min-height: calc(100vh - 80px);
-        background: #ffffff;
+        background: var(--bg-primary);
         display: flex;
         align-items: center;
         justify-content: center;
         text-align: center;
         padding: 2rem;
-      }
-
-      @media (prefers-color-scheme: dark) {
-        .hero {
-          background: #1a1a1a;
-        }
       }
 
       .hero-content {
@@ -55,26 +64,14 @@ import Header from '../components/Header.astro';
         font-size: 3.5rem;
         font-weight: 700;
         margin-bottom: 1rem;
-        color: #000000;
-      }
-
-      @media (prefers-color-scheme: dark) {
-        .hero h1 {
-          color: #ffffff;
-        }
+        color: var(--text-primary);
       }
 
       .hero-tagline {
         font-size: 1.8rem;
         font-weight: 300;
         margin-bottom: 2rem;
-        color: #666666;
-      }
-
-      @media (prefers-color-scheme: dark) {
-        .hero-tagline {
-          color: #cccccc;
-        }
+        color: var(--text-muted);
       }
 
       .social-links {
@@ -90,66 +87,41 @@ import Header from '../components/Header.astro';
         justify-content: center;
         width: 50px;
         height: 50px;
-        background: #f0f0f0;
-        border: 2px solid #e0e0e0;
+        background: var(--bg-secondary);
+        border: 2px solid var(--border-color);
         border-radius: 50%;
-        color: #333333;
+        color: var(--text-secondary);
         text-decoration: none;
         transition: all 0.3s ease;
         font-size: 1.5rem;
       }
 
-      @media (prefers-color-scheme: dark) {
-        .social-link {
-          background: #2a2a2a;
-          border-color: #444444;
-          color: #ffffff;
-        }
-      }
-
       .social-link:hover {
-        background: #e0e0e0;
-        border-color: #cccccc;
+        background: var(--text-muted);
+        border-color: var(--text-muted);
+        color: var(--bg-primary);
         transform: translateY(-2px);
-      }
-
-      @media (prefers-color-scheme: dark) {
-        .social-link:hover {
-          background: #3a3a3a;
-          border-color: #555555;
-        }
       }
 
       .about-section {
         padding: 4rem 2rem;
         max-width: 900px;
         margin: 0 auto;
+        background: var(--bg-primary);
       }
 
       .about-section h2 {
         font-size: 2rem;
         font-weight: 700;
         margin-bottom: 2rem;
-        color: #000000;
-      }
-
-      @media (prefers-color-scheme: dark) {
-        .about-section h2 {
-          color: #ffffff;
-        }
+        color: var(--text-primary);
       }
 
       .about-section p {
         font-size: 1.1rem;
         line-height: 1.8;
         margin-bottom: 1.5rem;
-        color: #333333;
-      }
-
-      @media (prefers-color-scheme: dark) {
-        .about-section p {
-          color: #cccccc;
-        }
+        color: var(--text-secondary);
       }
 
       @media (max-width: 768px) {
@@ -209,5 +181,9 @@ import Header from '../components/Header.astro';
       <p>The GenevaJUG is a Java user group dedicated to bringing together professionals, open source communities, institutions, students, and educators to exchange ideas and discuss the technological advances of the Java platform.</p>
       <p>We meet on the last Tuesday of each month. Our meetings are free, open to everyone, and feature technical presentations, product demonstrations, or round table discussions. After each meeting, we typically gather for informal networking over drinks and refreshments.</p>
     </section>
+
+    <PastSessions locale="en" />
+    <Speakers locale="en" />
+    <Sponsors locale="en" />
   </body>
 </html>

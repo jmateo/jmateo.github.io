@@ -1,4 +1,6 @@
 ---
+import ThemeToggle from './ThemeToggle.astro';
+
 interface Props {
   locale: 'en' | 'fr';
 }
@@ -10,11 +12,17 @@ const menuItems = {
     { label: 'About GenevaJug', href: '#about' },
     { label: 'Past sessions', href: '#past-sessions' },
     { label: 'Next session', href: '#next-session' },
+    { label: 'Speakers', href: '#speakers' },
+    { label: 'Sponsors', href: '#sponsors' },
+    { label: 'Contact us', href: '#contact' },
   ],
   fr: [
     { label: 'À propos de GenevaJug', href: '#about' },
     { label: 'Sessions passées', href: '#past-sessions' },
     { label: 'Prochaine session', href: '#next-session' },
+    { label: 'Conférenciers', href: '#speakers' },
+    { label: 'Sponsors', href: '#sponsors' },
+    { label: 'Nous contacter', href: '#contact' },
   ],
 };
 
@@ -35,21 +43,15 @@ const items = menuItems[locale];
         ))}
       </ul>
     </nav>
+    <ThemeToggle />
   </div>
 </header>
 
 <style>
   .header {
-    background-color: #ffffff;
-    border-bottom: 1px solid #e0e0e0;
+    background-color: var(--bg-primary);
+    border-bottom: 1px solid var(--border-color);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .header {
-      background-color: #1a1a1a;
-      border-bottom-color: #333333;
-    }
   }
 
   .header-container {
@@ -59,29 +61,19 @@ const items = menuItems[locale];
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 2rem;
   }
 
   .logo a {
-    color: #000000;
+    color: var(--text-primary);
     font-size: 1.5rem;
     font-weight: bold;
     text-decoration: none;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .logo a {
-      color: #ffffff;
-    }
+    transition: color 0.3s ease;
   }
 
   .logo a:hover {
-    color: #666666;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .logo a:hover {
-      color: #cccccc;
-    }
+    color: var(--text-muted);
   }
 
   .nav-list {
@@ -93,26 +85,14 @@ const items = menuItems[locale];
   }
 
   .nav-link {
-    color: #333333;
+    color: var(--text-secondary);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
   }
 
-  @media (prefers-color-scheme: dark) {
-    .nav-link {
-      color: #cccccc;
-    }
-  }
-
   .nav-link:hover {
-    color: #666666;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .nav-link:hover {
-      color: #ffffff;
-    }
+    color: var(--text-primary);
   }
 
   @media (max-width: 768px) {
