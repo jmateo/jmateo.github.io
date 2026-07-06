@@ -6,6 +6,7 @@ interface Speaker {
   name: string;
   bio: string;
   image?: string;
+  id: string;
 }
 
 function nameToImageFilename(name: string): string {
@@ -35,11 +36,13 @@ export function getSpeakers(): Speaker[] {
       const name = data.title || 'Unknown';
       const imageFilename = nameToImageFilename(name);
       const hasImage = imageFiles.has(imageFilename);
+      const id = file.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace('.md', '');
 
       return {
         name,
         bio: content.trim(),
         image: hasImage ? `/images/speakers/${imageFilename}.jpg` : undefined,
+        id,
       };
     })
     .sort((a, b) => a.name.localeCompare(b.name));

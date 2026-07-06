@@ -1,12 +1,14 @@
 ---
 import { getPosts } from '../utils/posts';
+import { getSpeakers } from '../utils/speakers';
 
 interface Props {
   locale: 'en' | 'fr';
 }
 
 const { locale } = Astro.props;
-const posts = getPosts();
+const posts = getPosts(locale);
+const speakers = getSpeakers();
 
 const titles = {
   en: 'Past sessions',
@@ -14,6 +16,13 @@ const titles = {
 };
 
 const title = titles[locale];
+
+function getSpeakerNames(speakerIds: string | string[]): string {
+  const ids = Array.isArray(speakerIds) ? speakerIds : [speakerIds];
+  return ids
+    .map(id => speakers.find(s => s.id === id)?.name || id)
+    .join(', ');
+}
 ---
 
 <section id="past-sessions" class="past-sessions">
@@ -22,22 +31,32 @@ const title = titles[locale];
     <div class="sessions-grid">
       {posts.map((post) => (
         <article class="session-card">
-          {post.metadata.img && (
-            <div class="session-image">
-              <img src={post.metadata.img} alt={post.metadata.title} />
-            </div>
-          )}
-          <div class="session-content">
-            <time class="session-date">{post.metadata.date}</time>
-            <h3 class="session-title">{post.metadata.title}</h3>
-            {post.metadata.speaker && (
-              <p class="session-speaker">
-                {Array.isArray(post.metadata.speaker)
-                  ? post.metadata.speaker.join(', ')
-                  : post.metadata.speaker}
-              </p>
+          <a href={`/session/${post.slug}`} class="session-link">
+            {post.metadata.img && (
+              <div class="session-image">
+                <img src={post.metadata.img} alt={post.metadata.title} />
+              </div>
             )}
-            {post.metadata.slideshare && (
+            <div class="session-content">
+              <time class="session-date">{post.metadata.date}</time>
+              <h3 class="session-title">{post.metadata.title}</h3>
+              {post.metadata.speaker && (
+                <p class="session-speaker">
+                  {getSpeakerNames(post.metadata.speaker)}
+                </p>
+              )}
+              <div class="session-description">
+                {post.content
+                  .split('\n')
+                  .filter(line => line.trim())
+                  .slice(0, 3)
+                  .join(' ')
+                  .substring(0, 150)}...
+              </div>
+            </div>
+          </a>
+          {post.metadata.slideshare && (
+            <div class="session-footer">
               <a
                 href={`https://www.slideshare.net/slideshow/${
                   Array.isArray(post.metadata.slideshare)
@@ -50,8 +69,8 @@ const title = titles[locale];
               >
                 {locale === 'en' ? 'View slides' : 'Voir les slides'}
               </a>
-            )}
-          </div>
+            </div>
+          )}
         </article>
       ))}
     </div>
@@ -60,6 +79,7 @@ const title = titles[locale];
 
 <style>
   .past-sessions {
+    scroll-margin-top: 80px;
     padding: 4rem 2rem;
     background: var(--bg-primary);
   }
@@ -88,6 +108,8 @@ const title = titles[locale];
     border-radius: 8px;
     overflow: hidden;
     transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
   }
 
   .session-card:hover {
@@ -97,6 +119,14 @@ const title = titles[locale];
 
   :root[data-theme='dark'] .session-card:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .session-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
   }
 
   .session-image {
@@ -114,6 +144,13 @@ const title = titles[locale];
 
   .session-content {
     padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .session-footer {
+    padding: 0 1.5rem 1.5rem;
   }
 
   .session-date {
@@ -134,6 +171,13 @@ const title = titles[locale];
     font-size: 0.95rem;
     color: var(--text-secondary);
     margin-bottom: 1rem;
+  }
+
+  .session-description {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-top: auto;
   }
 
   .slides-link {

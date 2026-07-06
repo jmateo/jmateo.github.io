@@ -1,0 +1,56 @@
+---
+interface Props {
+  locale: 'en' | 'fr';
+}
+
+const { locale } = Astro.props;
+
+const languages = [
+  { code: 'en', label: 'EN', path: '/' },
+  { code: 'fr', label: 'FR', path: '/fr' },
+];
+---
+
+<div class="language-switcher">
+  {languages.map((lang) => (
+    <a
+      href={lang.path}
+      class={`lang-link ${locale === lang.code ? 'active' : ''}`}
+      aria-label={`Switch to ${lang.label}`}
+    >
+      {lang.label}
+    </a>
+  ))}
+</div>
+
+<style>
+  .language-switcher {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .lang-link {
+    padding: 0.5rem 0.75rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+
+  .lang-link:hover {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+  }
+
+  .lang-link.active {
+    background: #007bff;
+    color: white;
+  }
+
+  .lang-link.active:hover {
+    background: #0056b3;
+  }
+</style>

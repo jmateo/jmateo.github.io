@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { marked } from 'marked';
 
 interface PostMetadata {
   title: string;
@@ -14,10 +15,16 @@ interface Post {
   slug: string;
   metadata: PostMetadata;
   content: string;
+  locale: string;
 }
 
-export function getPosts(): Post[] {
-  const postsDir = path.join(process.cwd(), '_posts');
+export function getPosts(locale: string = 'en'): Post[] {
+  const postsDir = path.join(process.cwd(), '_posts', locale);
+
+  if (!fs.existsSync(postsDir)) {
+    return [];
+  }
+
   const files = fs.readdirSync(postsDir);
 
   const posts = files
@@ -39,10 +46,17 @@ export function getPosts(): Post[] {
           slideshare: data.slideshare,
           date,
         },
-        content,
+        content: marked(content),
+        locale,
       };
     })
     .sort((a, b) => new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime());
 
   return posts;
+}
+
+export function getAllPosts(): Post[] {
+  const enPosts = getPosts('en');
+  const frPosts = getPosts('fr');
+  return [...enPosts, ...frPosts];
 }

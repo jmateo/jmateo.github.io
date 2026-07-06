@@ -11,6 +11,8 @@ import Sponsors from '../../components/Sponsors.astro';
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>GenevaJUG - Groupe d'utilisateurs Java de Genève</title>
+    <link rel="icon" type="image/png" href="/apple_touch_icon.png" />
+    <link rel="apple-touch-icon" href="/apple_touch_icon.png" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
       * {
@@ -104,10 +106,13 @@ import Sponsors from '../../components/Sponsors.astro';
       }
 
       .about-section {
+        scroll-margin-top: 80px;
         padding: 4rem 2rem;
         max-width: 900px;
         margin: 0 auto;
+        margin-bottom: 10rem;
         background: var(--bg-primary);
+        min-height: 80vh;
       }
 
       .about-section h2 {
