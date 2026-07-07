@@ -23,7 +23,9 @@ const menuItems = {
   ],
 };
 
-const items = menuItems[locale];
+const allItems = menuItems[locale];
+const firstItem = allItems[0];
+const moreItems = allItems.slice(1);
 ---
 
 <header class="header">
@@ -35,13 +37,25 @@ const items = menuItems[locale];
       </a>
     </div>
     <nav class="nav">
-      <ul class="nav-list">
-        {items.map((item) => (
+      <ul class="nav-list desktop-nav">
+        {allItems.map((item) => (
           <li class="nav-item">
             <a href={item.href} class="nav-link">{item.label}</a>
           </li>
         ))}
       </ul>
+
+      <div class="mobile-nav">
+        <a href={firstItem.href} class="nav-link">{firstItem.label}</a>
+        <div class="dropdown-wrapper">
+          <button class="dropdown-toggle" aria-label="More menu items">⋮</button>
+          <div class="dropdown-menu">
+            {moreItems.map((item) => (
+              <a href={item.href} class="dropdown-item">{item.label}</a>
+            ))}
+          </div>
+        </div>
+      </div>
     </nav>
     <div class="header-tools">
       <LanguageSwitcher {locale} />
@@ -49,6 +63,34 @@ const items = menuItems[locale];
     </div>
   </div>
 </header>
+
+<script>
+  document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      const wrapper = toggle.parentElement;
+      wrapper?.classList.toggle('open');
+    });
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
+    if (!target.closest('.dropdown-wrapper')) {
+      document.querySelectorAll('.dropdown-wrapper').forEach(w => {
+        w.classList.remove('open');
+      });
+    }
+  });
+
+  // Close dropdown when clicking a menu item
+  document.querySelectorAll('.dropdown-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const wrapper = item.closest('.dropdown-wrapper');
+      wrapper?.classList.remove('open');
+    });
+  });
+</script>
 
 <style>
   .header {
@@ -127,6 +169,71 @@ const items = menuItems[locale];
     color: var(--text-primary);
   }
 
+  .mobile-nav {
+    display: none;
+    gap: 0.5rem;
+    align-items: center;
+    width: 100%;
+  }
+
+  .dropdown-wrapper {
+    position: relative;
+  }
+
+  .dropdown-toggle {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .dropdown-toggle:hover {
+    color: var(--text-primary);
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    min-width: 180px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    z-index: 1000;
+    margin-top: 0.5rem;
+  }
+
+  .dropdown-wrapper.open .dropdown-menu {
+    display: flex;
+  }
+
+  .dropdown-item {
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid var(--border-color);
+    display: block;
+  }
+
+  .dropdown-item:last-child {
+    border-bottom: none;
+  }
+
+  .dropdown-item:hover {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+  }
+
   @media (max-width: 768px) {
     .header-container {
       padding: 0.5rem 0.75rem;
@@ -142,14 +249,16 @@ const items = menuItems[locale];
       height: 32px;
     }
 
-    .nav-list {
-      gap: 0.6rem;
-      flex-basis: 100%;
-      justify-content: flex-start;
+    .nav-list.desktop-nav {
+      display: none;
+    }
+
+    .mobile-nav {
+      display: flex;
     }
 
     .nav-link {
-      font-size: 0.75rem;
+      font-size: 0.9rem;
     }
   }
 </style>
