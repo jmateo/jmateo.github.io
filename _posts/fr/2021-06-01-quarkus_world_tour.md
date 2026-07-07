@@ -11,7 +11,9 @@ eventbrite: billets-quarkus-world-tour-
 eventbriteid: 155718890393
 ---
 
-![Logo Quarkus World Tour](/images/events/hero_worldtour.png){:align="center"}{:.event-logo-center}
+<div style="text-align: center;">
+<img src="/images/events/hero_worldtour.png" alt="Logo Quarkus World Tour" class="event-logo-center" />
+</div>
 
 Le GenevaJUG est très fier d'accueillir le Quarkus World Tour pour une session online, en français, avec **Clément Escoffier** et **Guillaume Smet**.   
 

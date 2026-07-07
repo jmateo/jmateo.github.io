@@ -9,7 +9,6 @@ interface Props {
 
 const { slug } = Astro.params;
 const allPosts = getAllPosts();
-const speakers = getSpeakers();
 const post = allPosts.find(p => p.slug === slug);
 
 if (!post) {
@@ -17,6 +16,7 @@ if (!post) {
 }
 
 const sessionLocale = post.locale as 'en' | 'fr';
+const speakers = getSpeakers(sessionLocale);
 
 function nameToImageFilename(name: string): string {
   return name
@@ -38,20 +38,13 @@ function nameToSlug(name: string): string {
     .replace(/[ç]/g, 'c');
 }
 
-const speakerNames = Array.isArray(post.metadata.speaker)
+const speakerIds = Array.isArray(post.metadata.speaker)
   ? post.metadata.speaker
   : post.metadata.speaker ? [post.metadata.speaker] : [];
 
-const sessionSpeakers = speakerNames.map(speakerName => {
-  const speaker = speakers.find(s => s.name === speakerName);
-  return {
-    name: speakerName,
-    bio: speaker?.bio,
-    image: speaker?.image,
-  };
-});
-
-const locale = 'fr';
+const sessionSpeakers = speakerIds
+  .map(speakerId => speakers.find(s => s.id === speakerId))
+  .filter(Boolean);
 
 export function getStaticPaths() {
   const allPosts = getAllPosts();
@@ -265,7 +258,7 @@ export function getStaticPaths() {
               {sessionSpeakers.length === 1 ? 'Conférencier' : 'Conférenciers'}
             </h2>
             {sessionSpeakers.map((speaker) => (
-              <a href={`/fr/speaker/${nameToSlug(speaker.name)}`} class="speaker-link">
+              <a href={`/fr/speaker/${speaker.id}`} class="speaker-link">
                 <div class="speaker-item">
                   {speaker.image && (
                     <div class="speaker-image">

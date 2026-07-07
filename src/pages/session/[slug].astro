@@ -9,7 +9,6 @@ interface Props {
 
 const { slug } = Astro.params;
 const allPosts = getAllPosts();
-const speakers = getSpeakers();
 const post = allPosts.find(p => p.slug === slug);
 
 if (!post) {
@@ -17,6 +16,7 @@ if (!post) {
 }
 
 const sessionLocale = post.locale as 'en' | 'fr';
+const speakers = getSpeakers(sessionLocale);
 
 function nameToImageFilename(name: string): string {
   return name
@@ -45,8 +45,6 @@ const speakerIds = Array.isArray(post.metadata.speaker)
 const sessionSpeakers = speakerIds
   .map(speakerId => speakers.find(s => s.id === speakerId))
   .filter(Boolean);
-
-const locale = 'en';
 
 export function getStaticPaths() {
   const allPosts = getAllPosts();

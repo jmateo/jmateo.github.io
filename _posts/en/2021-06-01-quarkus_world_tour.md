@@ -11,21 +11,21 @@ eventbrite: billets-quarkus-world-tour-
 eventbriteid: 155718890393
 ---
 
-![Logo Quarkus World Tour](/images/events/hero_worldtour.png){:align="center"}{:.event-logo-center}
+<div style="text-align: center;">
+<img src="/images/events/hero_worldtour.png" alt="Logo Quarkus World Tour" class="event-logo-center" />
+</div>
 
-Le GenevaJUG est très fier d’accueillir le Quarkus World Tour pour une session online, en français, avec **Clément Escoffier** et **Guillaume Smet**.   
+The GenevaJUG is proud to host the Quarkus World Tour for an online session with **Clément Escoffier** and **Guillaume Smet**.
 
+This session will be divided into three parts:
 
-Cette session sera décomposée en trois parties :
+- A presentation of the framework
+- A complete demo of Quarkus for all participants
+- A debrief / Q&A.
 
-- Une présentation du framework
-- Une démo complète de Quarkus, pour tous les participants
-- Un débrief / Q&A.
+The number of places is limited to 50 so everything goes smoothly, so hurry up and register :-)
 
-Le nombre de places est limité à 50 pour que tout se passe dans les meilleures conditions, alors foncez et inscrivez-vous :-)
-
-
-**Présentation officielle du Quarkus World Tour** :
+**Official Quarkus World Tour presentation** :
 
 In the spirit of the times, the Quarkus Team virtually presents a big, loud, and bold, rock & roll mega-stadium tour.
 

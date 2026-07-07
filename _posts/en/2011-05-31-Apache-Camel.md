@@ -8,10 +8,10 @@ slidashare:
  - 8344185
 picasa: 5628574328532353793
 ---
-Le besoin en technologies d’intégration est très important. Les EIPs (Enterprise Integration Patterns) sont devenues un standard de fait pour décrire les scénarios d’intégration et de messaging.
+The need for integration technologies is very important. EIPs (Enterprise Integration Patterns) have become a de facto standard for describing integration and messaging scenarios.
 
-Apache Camel a été conçu en vue de supporter complètement ces modèle.
+Apache Camel was designed to fully support these models.
 
-Grâce a ses langages dédiés (DSL Java, Xml, Scala ..), Camel rends les scénarios d’intégration les plus complexes très simples a implémenter.
+Thanks to its dedicated languages (Java DSL, XML, Scala...), Camel makes even the most complex integration scenarios very simple to implement.
 
-Cette présentation vous donnera un aperçu de Camel et beaucoup de raisons d’ajouter ce projet dans votre boîte à outils.
+This presentation will give you an overview of Camel and many reasons to add this project to your toolkit.

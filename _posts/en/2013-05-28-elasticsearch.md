@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Soirée NoSQL
+title: NoSQL Evening
 speaker:
   - david_pilato
 youtube: agDVlm4zxAk
 ---
-Vous utilisez encore des requêtes SQL pour faire des recherches ? Vos utilisateurs vous reprochent de ne pas pouvoir chercher sur toutes les rubriques ? Votre temps de réponse moyen est supérieur à la demi-seconde avec seulement quelques millions de documents ? Il vous faut 3 jours pour produire des statistiques sur vos données ? Vous rêvez d’offrir une recherche “à la google” sur les données de votre SI ?
-Ne cherchez plus ! Cette conférence est faite pour vous. David présentera au cours de la soirée pourquoi et comment il est passé de la recherche SQL à Elasticsearch en détaillant les apports de ce moteur par rapport à une solution pure Lucene
+Are you still using SQL queries for searches? Are your users complaining that they can’t search across all sections? Is your average response time more than half a second with only a few million documents? Does it take you 3 days to generate statistics on your data? Do you dream of offering “Google-like” search on your IS data?
+Don’t look any further! This conference is for you. David will present during the evening why and how he switched from SQL search to Elasticsearch, detailing the benefits of this engine compared to a pure Lucene solution.

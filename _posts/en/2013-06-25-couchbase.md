@@ -1,15 +1,15 @@
 ---
 layout: post
-title: Introduction au NoSQL avec Couchbase
+title: "Introduction to NoSQL with Couchbase"
 speaker:
   - tugdual_grall
 youtube: oXIeefqw1vM
 ---
-Cette présentation commencera par une introduction au NoSQL. Cette introduction expliquera les raisons pour lesquelles de plus en plus de projets utilisent ce type de solutions et les limitations des architectures classiques. Tugdual fera également le tour des différentes approches (Clé Valeur, Document, Colonnes, Graph) et solutions.
-Une fois cette introduction effectuée vous verrez en detail la solution Couchbase Server 2.0. Couchbase est une base de donées NoSQL orientée Document développée en Open Source. Tugdual presentera en s’appuyant sur des démonstrations
-* le développement d’applications Java (et/ou autres selon les gouts) sur du NoSQL en expliquant les bénéfices des solutions
-* se basant sur des structures de données flexibles (Document JSON)
-* l’utilisation de Map Reduce pour la création de requetes complexes
-* la mise en place et l’administration d’un cluster, et les défis associés
+This presentation will begin with an introduction to NoSQL. This introduction will explain the reasons why more and more projects are using this type of solution and the limitations of traditional architectures. Tugdual will also cover the different approaches (Key-Value, Document, Columns, Graph) and solutions.
+Once this introduction is complete, you will see in detail the Couchbase Server 2.0 solution. Couchbase is a NoSQL database oriented toward Documents developed as Open Source. Tugdual will present, based on demonstrations:
+* Java application development (and/or others according to taste) on NoSQL by explaining the benefits of solutions
+* based on flexible data structures (JSON Documents)
+* the use of Map Reduce for creating complex queries
+* the setup and administration of a cluster, and the associated challenges
 
-Venez découvrir les joies du NoSQL et du developpment “schemaless”!
+Come discover the joys of NoSQL and “schemaless” development!

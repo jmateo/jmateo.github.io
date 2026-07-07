@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Birthday party with Scala and Akka
+title: Birthday Party with Scala and Akka
 speaker:
   - julian_dragos
   - jonas_boner

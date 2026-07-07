@@ -1,0 +1,11 @@
+---
+
+layout: speakers
+title: Andres Almiray
+---
+
+Andres est un développeur Java/Groovy et un Java Champion avec plus de 17 ans d'expérience en conception et développement logiciel. Il est impliqué dans le développement d'applications web et de bureau depuis les premiers jours de Java.
+
+Andres est un fervent croyant de l'open-source et a participé à des projets populaires comme Groovy, Griffon et DbUnit, ainsi qu'à la création de ses propres projets (Json-lib, EZMorph, GraphicsBuilder, JideBuilder).
+
+Membre fondateur du framework Griffon et de l'événement communautaire Hackergarten.

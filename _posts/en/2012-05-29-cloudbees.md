@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Soirée Cloud
+title: Cloud Evening
 speaker:
   - sacha_labourey
 img: /images/events/cloudbees-logo.png
 ---
-Le Cloud est en train de profondément transformer l’industrie de l’IT. Nous verrons ce que ce changement signifie et, plus précisément, quelles sont les options qui s’offrent aux développeurs.
+The Cloud is profoundly transforming the IT industry. We will see what this change means and, more specifically, what options are available to developers.
 
-En parallèle à l’émergence du cloud, les besoins en nouvelles applications (afin de traiter les nouvelles quantités de données générées quotidiennement ou pour s’adapter aux nouveaux terminaux mobiles), créent une pression toujours plus grande sur les équipes IT, Nous verrons comment le cloud aide à fournir une réponse élégante à ce problème. Puis, après quelques prévisions météorologiques, nous terminerons avec une rapide démonstration d’une plate forme de développement dans le cloud, si le temps le permet.
+In parallel with the emergence of the cloud, the need for new applications (to handle new quantities of data generated daily or to adapt to new mobile devices) creates ever greater pressure on IT teams. We will see how the cloud helps provide an elegant response to this problem. Then, after some weather predictions, we will conclude with a quick demonstration of a development platform in the cloud, if time permits.
