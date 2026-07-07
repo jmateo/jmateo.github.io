@@ -15,6 +15,8 @@ const languages = [
   {languages.map((lang) => (
     <a
       href={lang.path}
+      data-current-locale={locale}
+      data-target-locale={lang.code}
       class={`lang-link ${locale === lang.code ? 'active' : ''}`}
       aria-label={`Switch to ${lang.label}`}
     >
@@ -23,7 +25,72 @@ const languages = [
   ))}
 </div>
 
+<script>
+  document.querySelectorAll('.lang-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const currentLocale = link.getAttribute('data-current-locale');
+      const targetLocale = link.getAttribute('data-target-locale');
+
+      // If clicking the same language, do nothing
+      if (currentLocale === targetLocale) {
+        e.preventDefault();
+        return;
+      }
+
+      e.preventDefault();
+
+      // Get current hash/anchor
+      const hash = window.location.hash;
+
+      // Build the target path with hash
+      const targetPath = link.getAttribute('href') + hash;
+
+      // Use View Transitions API if available for smooth transition
+      if (document.startViewTransition) {
+        document.startViewTransition(() => {
+          window.location.href = targetPath;
+        });
+      } else {
+        // Fallback for browsers that don't support View Transitions
+        // Fade out, navigate, fade in
+        document.documentElement.style.opacity = '0.5';
+        setTimeout(() => {
+          window.location.href = targetPath;
+        }, 150);
+      }
+    });
+  });
+</script>
+
 <style>
+  @supports (view-transition-name: none) {
+    ::view-transition-old(root) {
+      animation: fade-out 0.2s ease-out forwards;
+    }
+
+    ::view-transition-new(root) {
+      animation: fade-in 0.2s ease-in forwards;
+    }
+
+    @keyframes fade-out {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+      }
+    }
+
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  }
+
   .language-switcher {
     display: flex;
     gap: 0.5rem;
