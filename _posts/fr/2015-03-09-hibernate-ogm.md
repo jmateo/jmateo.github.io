@@ -1,6 +1,6 @@
 ---
 layout: post
-title: On n'est pas que des cobayes: ORM et NoSQL sont-ils solubles?
+title: "On n'est pas que des cobayes: ORM et NoSQL sont-ils solubles?"
 speaker:
   - emmanuel_bernard
 youtube: iC9HpadbShA

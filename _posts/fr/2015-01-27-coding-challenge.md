@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 5ème anniversaire: Soirée User Group Coding Challenge
+title: "5ème anniversaire: Soirée User Group Coding Challenge"
 youtube: TRqwn3g2isE
 ---
 <ul id="grid-premium">
