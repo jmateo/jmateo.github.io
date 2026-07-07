@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Applications Java: rétro-conception et hacking
+title: "Applications Java: rétro-conception et hacking"
 speaker:
   - sebastien_andrivet
 ---

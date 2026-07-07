@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Au delà des brokers: un tour de l'environnement Kafka
+title: "Au delà des brokers: un tour de l'environnement Kafka"
 speaker:
   - florent_ramiere
 location: Fusion
