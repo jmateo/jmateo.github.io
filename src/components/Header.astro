@@ -1,0 +1,138 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+
+interface Props {
+  locale: 'en' | 'fr';
+}
+
+const { locale } = Astro.props;
+
+const menuItems = {
+  en: [
+    { label: 'About GenevaJUG', href: '/#about' },
+    { label: 'Next session', href: '/#next-session' },
+    { label: 'Past sessions', href: '/#past-sessions' },
+    { label: 'Speakers', href: '/#speakers' }
+  ],
+  fr: [
+    { label: 'À propos de GenevaJUG', href: '/fr#about' },
+    { label: 'Prochaine session', href: '/fr#next-session' },
+    { label: 'Sessions passées', href: '/fr#past-sessions' },
+    { label: 'Speakers', href: '/fr#speakers' }
+  ],
+};
+
+const items = menuItems[locale];
+---
+
+<header class="header">
+  <div class="header-container">
+    <div class="logo">
+      <a href={locale === 'en' ? '/' : '/fr'}>
+        <img src="/apple_touch_icon.png" alt="GenevaJUG" class="logo-img" />
+        <span class="logo-text">GenevaJUG</span>
+      </a>
+    </div>
+    <nav class="nav">
+      <ul class="nav-list">
+        {items.map((item) => (
+          <li class="nav-item">
+            <a href={item.href} class="nav-link">{item.label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+    <div class="header-tools">
+      <LanguageSwitcher {locale} />
+      <ThemeToggle />
+    </div>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--bg-primary);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.75rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: nowrap;
+  }
+
+  .header-tools {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .logo a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .logo a:hover {
+    opacity: 0.8;
+  }
+
+  .logo-img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+
+  .logo-text {
+    font-size: 1.25rem;
+  }
+
+  .nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 1.2rem;
+  }
+
+  .nav-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
+  .nav-link:hover {
+    color: var(--text-primary);
+  }
+
+  @media (max-width: 768px) {
+    .header-container {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .nav-list {
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+  }
+</style>

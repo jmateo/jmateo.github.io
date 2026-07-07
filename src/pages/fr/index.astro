@@ -1,0 +1,194 @@
+---
+import Header from '../../components/Header.astro';
+import PastSessions from '../../components/PastSessions.astro';
+import Speakers from '../../components/Speakers.astro';
+import Sponsors from '../../components/Sponsors.astro';
+---
+
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GenevaJUG - Groupe d'utilisateurs Java de Genève</title>
+    <link rel="icon" type="image/png" href="/apple_touch_icon.png" />
+    <link rel="apple-touch-icon" href="/apple_touch_icon.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root[data-theme='light'] {
+        --bg-primary: #ffffff;
+        --bg-secondary: #f0f0f0;
+        --text-primary: #000000;
+        --text-secondary: #333333;
+        --text-muted: #666666;
+        --border-color: #e0e0e0;
+      }
+
+      :root[data-theme='dark'] {
+        --bg-primary: #1a1a1a;
+        --bg-secondary: #2a2a2a;
+        --text-primary: #ffffff;
+        --text-secondary: #cccccc;
+        --text-muted: #999999;
+        --border-color: #444444;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          'Helvetica Neue', Arial, sans-serif;
+        line-height: 1.6;
+        background: var(--bg-primary);
+        color: var(--text-secondary);
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      .hero {
+        min-height: calc(100vh - 80px);
+        background: var(--bg-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem;
+      }
+
+      .hero-content {
+        max-width: 800px;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--text-primary);
+      }
+
+      .hero-tagline {
+        font-size: 1.8rem;
+        font-weight: 300;
+        margin-bottom: 2rem;
+        color: var(--text-muted);
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .social-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        background: var(--bg-secondary);
+        border: 2px solid var(--border-color);
+        border-radius: 50%;
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 1.5rem;
+      }
+
+      .social-link:hover {
+        background: var(--text-muted);
+        border-color: var(--text-muted);
+        color: var(--bg-primary);
+        transform: translateY(-2px);
+      }
+
+      .about-section {
+        scroll-margin-top: 80px;
+        padding: 4rem 2rem;
+        max-width: 900px;
+        margin: 0 auto;
+        margin-bottom: 10rem;
+        background: var(--bg-primary);
+        min-height: 80vh;
+      }
+
+      .about-section h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        color: var(--text-primary);
+      }
+
+      .about-section p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+        color: var(--text-secondary);
+      }
+
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .hero-tagline {
+          font-size: 1.2rem;
+        }
+
+        .social-links {
+          gap: 1rem;
+        }
+
+        .social-link {
+          width: 45px;
+          height: 45px;
+          font-size: 1.2rem;
+        }
+
+        .about-section {
+          padding: 3rem 1.5rem;
+        }
+
+        .about-section h2 {
+          font-size: 1.5rem;
+        }
+
+        .about-section p {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <Header locale="fr" />
+
+    <section class="hero">
+      <div class="hero-content">
+        <h1>GenevaJUG</h1>
+        <p class="hero-tagline">La communauté Java qui fait tourner les idées</p>
+
+        <div class="social-links">
+          <a href="https://www.linkedin.com/groups/12345/" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://bsky.app/profile/genevajug" class="social-link" aria-label="Bluesky" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-bluesky"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about-section">
+      <h2>Le Geneva Java User Group en quelques mots...</h2>
+      <p>Le GenevaJUG est un groupe d'utilisateurs Java ayant pour but de réunir les acteurs du langage (professionnels, communautés open source, institutions, étudiants, enseignants…) afin d'échanger des idées et de discuter des avancées technologiques de la plateforme Java.</p>
+      <p>Nous nous rencontrons le dernier mardi du mois. Les réunions sont gratuites, ouvertes à tous et consistent en une présentation technique, une démonstration d'un produit, ou une table ronde. Après la réunion nous nous retrouvons généralement pour un échange informel autour d'un verre et d'un mini-buffet.</p>
+    </section>
+
+    <PastSessions locale="fr" />
+    <Speakers locale="fr" />
+    <Sponsors locale="fr" />
+  </body>
+</html>

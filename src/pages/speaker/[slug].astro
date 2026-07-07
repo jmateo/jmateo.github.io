@@ -1,0 +1,265 @@
+---
+import Header from '../../components/Header.astro';
+import { getSpeakers } from '../../utils/speakers';
+import { getAllPosts } from '../../utils/posts';
+
+interface Props {
+  params: { slug: string };
+}
+
+const { slug } = Astro.params;
+const speakers = getSpeakers();
+
+const speaker = speakers.find(s => s.id === slug);
+
+if (!speaker) {
+  return Astro.redirect('/404');
+}
+
+const allPosts = getAllPosts();
+const speakerSessions = allPosts.filter(post => {
+  const postSpeakers = Array.isArray(post.metadata.speaker)
+    ? post.metadata.speaker
+    : post.metadata.speaker ? [post.metadata.speaker] : [];
+  return postSpeakers.includes(speaker.id);
+});
+
+const locale = 'en';
+
+export function getStaticPaths() {
+  const speakers = getSpeakers();
+  return speakers.map(speaker => ({
+    params: { slug: speaker.id },
+  }));
+}
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{speaker.name} - GenevaJUG</title>
+    <link rel="icon" type="image/png" href="/apple_touch_icon.png" />
+    <link rel="apple-touch-icon" href="/apple_touch_icon.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root[data-theme='light'] {
+        --bg-primary: #ffffff;
+        --bg-secondary: #f0f0f0;
+        --text-primary: #000000;
+        --text-secondary: #333333;
+        --text-muted: #666666;
+        --border-color: #e0e0e0;
+      }
+
+      :root[data-theme='dark'] {
+        --bg-primary: #1a1a1a;
+        --bg-secondary: #2a2a2a;
+        --text-primary: #ffffff;
+        --text-secondary: #cccccc;
+        --text-muted: #999999;
+        --border-color: #444444;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          'Helvetica Neue', Arial, sans-serif;
+        line-height: 1.6;
+        background: var(--bg-primary);
+        color: var(--text-secondary);
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      .back-link {
+        display: inline-block;
+        margin-bottom: 2rem;
+        color: #007bff;
+        text-decoration: none;
+        font-size: 0.95rem;
+      }
+
+      .back-link:hover {
+        text-decoration: underline;
+      }
+
+      .speaker-detail {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .speaker-header {
+        display: flex;
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .speaker-image-section {
+        flex-shrink: 0;
+      }
+
+      .speaker-image-section img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+
+      .speaker-info-section {
+        flex: 1;
+      }
+
+      .speaker-detail h1 {
+        font-size: 2rem;
+        color: var(--text-primary);
+        margin-bottom: 1rem;
+      }
+
+      .speaker-bio {
+        font-size: 0.95rem;
+        line-height: 1.8;
+        color: var(--text-secondary);
+        margin-bottom: 1.5rem;
+      }
+
+      .sessions-section {
+        margin-top: 2rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--border-color);
+      }
+
+      .sessions-section h2 {
+        font-size: 1.5rem;
+        color: var(--text-primary);
+        margin-bottom: 1.5rem;
+      }
+
+      .session-item {
+        background: var(--bg-primary);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+        transition: all 0.3s ease;
+      }
+
+      .session-item:hover {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transform: translateX(4px);
+      }
+
+      :root[data-theme='dark'] .session-item:hover {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      .session-item a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .session-date {
+        display: block;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        margin-bottom: 0.5rem;
+      }
+
+      .session-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #007bff;
+        margin-bottom: 0.5rem;
+      }
+
+      .no-sessions {
+        color: var(--text-muted);
+        font-style: italic;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 1rem;
+        }
+
+        .speaker-detail {
+          padding: 1.5rem;
+        }
+
+        .speaker-header {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .speaker-image-section img {
+          width: 150px;
+          height: 150px;
+        }
+
+        .speaker-detail h1 {
+          font-size: 1.5rem;
+          text-align: center;
+        }
+
+        .speaker-info-section {
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <Header locale={'en'} />
+
+    <div class="container">
+      <a href="/#speakers" class="back-link">
+        ← Back to Speakers
+      </a>
+
+      <div class="speaker-detail">
+        <div class="speaker-header">
+          {speaker.image && (
+            <div class="speaker-image-section">
+              <img src={speaker.image} alt={speaker.name} />
+            </div>
+          )}
+          <div class="speaker-info-section">
+            <h1>{speaker.name}</h1>
+            <div class="speaker-bio">{speaker.bio}</div>
+          </div>
+        </div>
+
+        {speakerSessions.length > 0 && (
+          <div class="sessions-section">
+            <h2>Sessions ({speakerSessions.length})</h2>
+            {speakerSessions.map((session) => (
+              <div class="session-item">
+                <a href={`/session/${session.slug}`}>
+                  <span class="session-date">{session.metadata.date}</span>
+                  <div class="session-title">{session.metadata.title}</div>
+                </a>
+              </div>
+            ))}
+          </div>
+        )}
+        {speakerSessions.length === 0 && (
+          <div class="sessions-section">
+            <p class="no-sessions">No sessions found for this speaker.</p>
+          </div>
+        )}
+      </div>
+    </div>
+  </body>
+</html>
