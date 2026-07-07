@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Micro Frontends REX - Diviser pour mieux régner !
+title: Micro Frontends Case Study - Divide to Rule Better!
 eventstartat: 18h30
 speaker:
 - hugo_chiavenuto
@@ -14,10 +14,10 @@ eventbriteid: 303121583817
 ---
 
 
-Le GenevaJUG accueille **Hugo Chiavenuto** qui viendra nous présenter un retour d'expérience sur la mise en place d'une stratégie Micro Frontends et son implémentation at scale avant de la rejouer à Devoxx France.
+The GenevaJUG welcomes **Hugo Chiavenuto** who will present a case study on implementing a Micro Frontends strategy and its large-scale implementation before replaying it at Devoxx France.
 
-L'agilité et les micro-services nous ont appris à découpler, mais nos utilisateurs veulent une expérience et une plateforme unifiée. L'approche Micro Frontends serait-elle finalement la solution pour concilier les deux ? Avoir des équipes autonomes et indépendantes, qui fourniraient des éléments graphiques assemblés ensuite pour former nos applications. Et si on allait plus loin, un écosystème complet ou l'on pourrait rendre la composition des applications unique et personnalisable pour et par chaque utilisateur ? En se basant sur une approche Micro Frontend composée côté client, avec comme clé de voûte la fédération de module de WebPack et le framework Angular, nous avons établi et implémenté une architecture qui permet cela.
+Agility and microservices have taught us to decouple, but our users want a unified experience and platform. Would the Micro Frontends approach finally be the solution to reconcile the two? Having autonomous and independent teams that would provide graphical elements assembled together to form our applications. And if we went further, a complete ecosystem where we could make application composition unique and customizable for and by each user? Based on a client-side composed Micro Frontend approach, with module federation of Webpack and the Angular framework as the cornerstone, we established and implemented an architecture that allows this.
 
-Je vous propose au travers de ce retour d’expérience, de vous expliquer ce qu'est l'approche Micro Frontends, ces différentes déclinaisons, ces avantages, ces inconvénients et ces pièges. Je vous présenterais notre cheminement, les choix d'architectures que nous avons dû faire et les solutions techniques apportées.
+Through this case study, I propose to explain what the Micro Frontends approach is, its different variations, its advantages, disadvantages, and pitfalls. I will present our journey, the architectural choices we had to make, and the technical solutions provided.
 
-Cette session se déroulera en français.
+This session will be held in French.

@@ -1,25 +1,30 @@
 ---
 layout: post
-title: On n'est pas que des cobayes&#58; ORM et NoSQL sont-ils solubles?
+title: "ORM and NoSQL: Are They Compatible?"
 speaker:
   - emmanuel_bernard
 youtube: iC9HpadbShA
 ---
-Java est le fief de l’Orienté Objet où les ORMs poussent comme des champignons. Est-ce que les ORMs apportent encore des bénéfices dans le monde du NoSQL et de la persistance polyglotte? On discutera aussi le pourquoi et le comment du design de données dans le NoSQL.
-Comme dans l’émission, [On n’est pas que des cobayes]("http://www.france5.fr/emissions/on-n-est-pas-que-des-cobayes"), on tentera de faire cohabiter ORMs et NoSQL en y analysant le résultat. Parmi les défis relevés, on pourra y voir:
-* Peut on survivre avec un seul produit NoSQL ?
-* NoSQL implique-t-il des cauchemardas de duplications de données?
-* JPA et NoSQL c’est comme faire rentrer une pièce ronde dans un trou carré?
-* Les ORMs ne peuvent pas abstraire proprement les modèles de données NoSQL?
-* Les ORMs c’est comme la nitro, ça booste les performances… ou pas?
-* Abstraire les langages de requêtage NoSQL, c’est trop difficile?
-* Sans l’accès natif aux APIs NoSQL, point de salut?
-* Les ORMs n’apportent pas vraiment de valeur dans un monde NoSQL?
+Java is the stronghold of Object-Oriented programming where ORMs proliferate like mushrooms. Do ORMs still bring benefits in the NoSQL world and polyglot persistence? We will also discuss the why and how of data design in NoSQL.
 
-Venez discuter et débattre.
+Like in the show, [On n’est pas que des cobayes]("http://www.france5.fr/emissions/on-n-est-pas-que-des-cobayes"), we will attempt to make ORMs and NoSQL coexist and analyze the results. Among the challenges tackled, we can explore:
+
+* Can we survive with a single NoSQL product?
+* Does NoSQL imply nightmares of data duplication?
+* Is JPA and NoSQL like fitting a round peg in a square hole?
+* Can ORMs not properly abstract NoSQL data models?
+* Are ORMs like nitro, do they boost performance... or not?
+* Is abstracting NoSQL query languages too difficult?
+* Without native access to NoSQL APIs, is there no hope?
+* Do ORMs not really bring value in a NoSQL world?
+
+Come discuss and debate.
+
 **Hibernate BoF**
-On prendra le reste du temps pour discuter des autres projets Hibernate:
-* Qu’est-ce qu’Hibernate Search, quels sont les nouveautés?
-* Qu’est-ce qui se passe du côté d’Hibernate ORM?
-* Hibernate Validator, Bean Validation, quésako?
-* [insérer votre question ici]?
+
+We will take the rest of the time to discuss other Hibernate projects:
+
+* What is Hibernate Search, and what are the new features?
+* What’s happening with Hibernate ORM?
+* Hibernate Validator, Bean Validation, what are they?
+* [insert your question here]?

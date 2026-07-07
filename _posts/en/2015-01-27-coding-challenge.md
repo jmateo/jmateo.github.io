@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 5ème anniversaire&#58; Soirée User Group Coding Challenge
+title: "5th Anniversary: User Group Coding Challenge"
 youtube: TRqwn3g2isE
 ---
 <ul id="grid-premium">
@@ -11,6 +11,8 @@ youtube: TRqwn3g2isE
       <li><a href="http://genevamug.ch/"><img src="/images/genevamug.jpeg" alt="GenevaMUG"></a></li>
 </ul>
 
-Pour fêter les 5 ans du GenevaJUG, nous nous sommes associés aux autres user groups de suisse romande (Scala Romandie, Geneva .NET, GenevaMUG, Docker Geneva) pour lancer une compétition de développement.
-L’objectif était de développer une petite application web (ou pas !) qui permet de soumettre et sélectionner des idées de Quickies pour les prochains User Group (GenevaJUG ou autre)
-Lors de cette soirée anniversaire, chaque participant à ce concours viendra présenter son application, les choix techniques faits et les difficultés rencontrées (ou pas ;-), puis nous pourrons passer en production l’application des gagnants !
+To celebrate the 5th anniversary of GenevaJUG, we partnered with other user groups in French-speaking Switzerland (Scala Romandie, Geneva .NET, GenevaMUG, Docker Geneva) to launch a development competition.
+
+The goal was to develop a small web application (or not!) that allows submitting and selecting Quickies ideas for upcoming User Groups (GenevaJUG or others).
+
+During this anniversary evening, each competition participant will present their application, the technical choices made, and the difficulties encountered (or not ;-), and then we will be able to put the winners’ application into production!

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Soirée Quickies pour le 4ème anniversaire du GenevaJUG
+title: Quickies for GenevaJUG’s 4th Anniversary
 speaker:
   - audrey_lievremont
   - nicolas_frankel
@@ -10,49 +10,35 @@ speaker:
   - nicolas_peru
 youtube: RaXHKYiYxvs
 ---
-{% assign speaker0id="/speakers/"|append: page.speaker[0]  %}
-{% assign speaker1id="/speakers/"|append: page.speaker[1]  %}
-{% assign speaker2id="/speakers/"|append: page.speaker[2]  %}
-{% assign speaker3id="/speakers/"|append: page.speaker[3]  %}
-{% assign speaker4id="/speakers/"|append: page.speaker[4]  %}
-{% assign speaker5id="/speakers/"|append: page.speaker[5]  %}
-{% assign speaker0 = site.speakers|where:"id", speaker0id |first%}
-{% assign speaker1 = site.speakers|where:"id", speaker1id |first%}
-{% assign speaker2 = site.speakers|where:"id", speaker2id |first%}
-{% assign speaker3 = site.speakers|where:"id", speaker3id |first%}
-{% assign speaker4 = site.speakers|where:"id", speaker4id |first%}
-{% assign speaker5 = site.speakers|where:"id", speaker5id |first%}
-{% assign speakersurl = "/jug/speakers.html?speaker=" %}
 
-**Clean HTML** par [{{speaker0.title}}]({{speakersurl}}{{page.speaker[0]}})
+**Clean HTML** by Audrey Lievremont
 
-Dans toute application Web notre principal outil de rendu est le HTML. Or beaucoup de développeurs connaissent mal cet outil et font un peu comme ils peuvent pour obtenir le rendu qu’ils veulent. Pourquoi ne faut-il pas faire de la mise en page par tableaux, qu’est-ce que le HTML sémantique ? Comment faire du HTML propre ? C’est ce que je me propose de vous expliquer !
+In any web application our main rendering tool is HTML. Yet many developers are unfamiliar with this tool and do a bit of whatever they can to get the rendering they want. Why shouldn’t you do layout with tables, what is semantic HTML? How to make clean HTML? That’s what I propose to explain to you!
 
-**Les spécificités des tests d’intégration** par [{{speaker1.title}}]({{speakersurl}}{{page.speaker[1]}})
+**The Specifics of Integration Testing** by Nicolas Frankel
 
-C’est quoi un test unitaire ? Et si je fais du JUnit, est-ce que je fais du TU ? En quoi les tests d’intégration sont-ils différents ? Et en quoi peuvent-ils m’aider à améliorer la qualité de mon logiciel ? Quels sont les outils qui permettent de faciliter les TU ? Et finalement, comment utiliser ces outils au mieux ?
+What is a unit test? And if I do JUnit, am I doing TU? How are integration tests different? And how can they help me improve the quality of my software? What are the tools that make it easier to do TU? And finally, how to best use these tools?
 
-**Centre de développement agile chez Nespresso :retour d’expérience** par [{{speaker2.title}}]({{speakersurl}}{{page.speaker[2]}}) 
+**Agile Development Center at Nespresso: Experience Report** by Guillaume Vial
 
-L’agilité aux frontières du waterfall…
-Passer de 15 à 80 développeurs sur 3 sites différents : en mode agile ?
-Initiatives, réussites, difficultés, …
-What else ?
+Agility at the boundaries of waterfall...
+Going from 15 to 80 developers across 3 different sites: in agile mode?
+Initiatives, successes, challenges, ...
+What else?
 
+**git: A Simple and Effective Workflow** by Teryk Bellahsene
 
-**git : un workflow simple et efficace** par [{{speaker3.title}}]({{speakersurl}}{{page.speaker[3]}}) 
+Live coding with usual operations and a proven and recommended workflow
 
-live coding avec les opérations usuelles et un workflow éprouvé et conseillé
- 
-**Comment avantageusement remplacer Excel par R pour traiter vos fichiers de log** par [{{speaker4.title}}]({{speakersurl}}{{page.speaker[4]}}) 
+**How to Advantageously Replace Excel with R to Process Your Log Files** by Philippe Kernevez
 
-Nous verrons comment simplement exploiter des fichiers de log issus de tests de performances ou de production.
-J’ai longtemps utilisé Excel pour faire exploiter ces fichiers, nous verrons dans cette session comment utiliser R sans être un expert (je n’en suis pas un ) et contourner les limitation d’Excel, à savoir :
-* les volumes (on parle rapidement de plusieurs centaines de milliers de lignes à traiter, voire plus)
-* la richesse fonctionnelle (calculer simplement une moyenne glissante, un percentile 95th, une interpolation)
-* l’industrialisation (opérations manuelles/temps entre la récupération d’un nouveau fichier de log et la visualisation des nouveaux graphs)
+We will see how to simply exploit log files from performance tests or production.
+I have long used Excel to work with these files. In this session, we will see how to use R without being an expert (I’m not one) and get around Excel’s limitations, namely:
+* volumes (we’re talking about hundreds of thousands of lines to process, if not more)
+* functional richness (simply calculate a moving average, a 95th percentile, an interpolation)
+* industrialization (manual operations/time between retrieving a new log file and viewing new graphs)
 
-**Reverse Psychologie in Java development** par [{{speaker5.title}}]({{speakersurl}}{{page.speaker[5]}}) 
+**Reverse Psychology in Java Development** by Nicolas Peru
 
-Au fil des années les developpeurs java ont acquis des biais psychologiques sur certaines pratiques du developpement qui sont interessantes à explorer (bonnes ou mauvaises pratiques). Voire, ces biais sont également à exploiter pour rendre évidentes les mauvaises pratiques qui ne sautent pas toujours aux yeux.
-Durant le talk, nous parlerons de quelques-unes de ces habitudes et nous verrons pourquoi elles sont parfois mauvaises et comment les contourner.
+Over the years, Java developers have acquired psychological biases about certain development practices that are interesting to explore (good or bad practices). Moreover, these biases can also be exploited to make obvious bad practices that don’t always stand out.
+During the talk, we will discuss some of these habits and see why they are sometimes bad and how to work around them.

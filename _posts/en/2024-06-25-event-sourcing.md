@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Event sourcing: Combining reliability, consistency and performance'
+title: "Event Sourcing: Combining Reliability, Consistency and Performance"
 eventstartat: 18h30
 speaker:
 - nicolas_piguet

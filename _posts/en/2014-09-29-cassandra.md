@@ -6,8 +6,8 @@ speaker:
   - michael_figuiere
 youtube: mR7IN3Oi854
 ---
-Cette soirée sera dédiée à la présentation de Cassandra, la base NoSQL orientée colonnes derrière les grandes entreprises comme Netflix, Sony Entertainment, Apple …
+This evening will be dedicated to presenting Cassandra, the column-oriented NoSQL database used by major companies like Netflix, Sony Entertainment, Apple…
 
-1ère partie: Présentation générale de Cassandra, de son modèle de données et les bonnes pratiques de modélisation: comment passer du monde SQL au monde NoSQL.
+First part: General presentation of Cassandra, its data model, and modeling best practices: how to transition from the SQL world to the NoSQL world.
 
-2ème partie, Cassandra pour les développeurs Java: Présentation des les outils pour travailler efficacement avec Cassandra
+Second part, Cassandra for Java developers: Presentation of tools for working efficiently with Cassandra

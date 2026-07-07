@@ -19,10 +19,14 @@ function nameToImageFilename(name: string): string {
     .replace(/[ç]/g, 'c');
 }
 
-export function getSpeakers(): Speaker[] {
-  const speakersDir = path.join(process.cwd(), '_speakers');
+export function getSpeakers(locale: string = 'en'): Speaker[] {
+  const speakersDir = path.join(process.cwd(), '_speakers', locale);
   const imagesDir = path.join(process.cwd(), 'images', 'speakers');
   const imageFiles = new Set(fs.readdirSync(imagesDir).map(f => f.replace('.jpg', '').replace('.png', '')));
+
+  if (!fs.existsSync(speakersDir)) {
+    return [];
+  }
 
   const files = fs.readdirSync(speakersDir);
 
@@ -56,4 +60,10 @@ export function getSpeakers(): Speaker[] {
     seenNames.add(speaker.name);
     return true;
   });
+}
+
+export function getAllSpeakers(): Speaker[] {
+  const enSpeakers = getSpeakers('en');
+  const frSpeakers = getSpeakers('fr');
+  return [...enSpeakers, ...frSpeakers];
 }

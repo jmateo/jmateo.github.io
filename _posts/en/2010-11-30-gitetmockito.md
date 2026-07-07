@@ -1,14 +1,14 @@
 ---
 layout: post
-title: Git et Mockito
+title: "Git and Mockito"
 speaker:
   - david_gageot
 slideshare: 
   - 5270389
   - 3801088
 ---
-Pour cette dernière session de l’année 2010, David vient nous présenter deux sujets !
+For this final session of 2010, David comes to present two subjects!
 
-Tout d’abord Git, le gestionnaire de configuration qui vous veut du bien.
+First, Git, the version control manager that has your best interests at heart.
 
-Puis Mockito, ou comment écrire des tests unitaires est devenu simple.
+Then Mockito, or how writing unit tests has become simple.

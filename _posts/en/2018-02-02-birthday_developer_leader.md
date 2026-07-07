@@ -1,21 +1,16 @@
 ---
 layout: post
-title: Birthday_developer_leader
+title: Birthday Developer Leader
 speaker:
   - freddy_mallet
   - daniel_schwarz
 ---
-{% assign speaker0id="/speakers/"|append: page.speaker[0]  %}
-{% assign speaker1id="/speakers/"|append: page.speaker[1]  %}
-{% assign speaker0 = site.speakers|where:"id", speaker0id |first%}
-{% assign speaker1 = site.speakers|where:"id", speaker1id |first%}
-{% assign speakersurl = "/jug/speakers.html?speaker=" %}
 
-**Développeurs, être un expert incompris ou un leader d’opinions ne dépend que de vous** par [{{ speaker0.title}}]({{speakersurl}}{{page.speaker[0]}})
+**Developers, being a misunderstood expert or an opinion leader is up to you** by Freddy Mallet
 
-Après chaque GenevaJUG ou conférence, vous retrouvez vos collègues la tête pleine de nouvelles idées, de nouvelles technos et de nouvelles pratiques de développement. Serez-vous de ces acteurs capables de transformer cette belle énergie en changement ? Ou serez-vous l’un de ces développeurs incompris et frustrés d’être entourés par autant d’incompétents ?
-Contrairement à ce que l’on voudrait bien croire les autres sont rarement le problème. Basé en partie sur des principes et techniques de communication mises en place chez SonarSource, l’objectif de cette présentation est de fournir quelques réflexes de base pour devenir un leader d’opinions au quotidien. Pourquoi ne pas commencer dès demain ?
+After each GenevaJUG or conference, you find yourself with colleagues’ heads full of new ideas, new technologies, and new development practices. Will you be one of these actors capable of transforming this beautiful energy into change? Or will you be one of these developers who feel misunderstood and frustrated by being surrounded by so much incompetence?
+Contrary to what we might like to believe, other people are rarely the problem. Based in part on the principles and communication techniques implemented at SonarSource, the objective of this presentation is to provide some basic reflexes to become an opinion leader in your daily life. Why not start tomorrow?
 
-**Boost Your Presentation** by [{{ speaker1.title}}]({{speakersurl}}{{page.speaker[1]}})
+**Boost Your Presentation** by Daniel Schwarz
 
 A bucket full of ideas on how to let your audience pay attention and never forget your presentation’s content.

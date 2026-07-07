@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Au delà des brokers&#58; un tour de l'environnement Kafka
+title: "Beyond the Brokers: A Tour of the Kafka Ecosystem"
 speaker:
   - florent_ramiere
 location: Fusion
@@ -10,5 +10,5 @@ transport:  P+R Etoile
 parking: P+R Etoile
 ---
 
-Apache Kafka ne se résume pas aux brokers, il y a tout un écosystème open-source qui gravite autour. Je vous propose ainsi de découvrir les principaux composants comme Kafka Streams, KSQL, Kafka Connect, Rest proxy, Schema Registry, MirrorMaker, etc.
-Venez avec vos questions, plus la session sera interactive, meilleure elle sera !
+Apache Kafka is not just about brokers, there's a whole open-source ecosystem revolving around it. I propose that you discover the main components such as Kafka Streams, KSQL, Kafka Connect, Rest Proxy, Schema Registry, MirrorMaker, etc.
+Come with your questions, the more interactive the session, the better it will be!

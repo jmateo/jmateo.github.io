@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Soirée fier d'être développeur
+title: Proud to be a Developer
 speaker:
   - pierre_pezziardi
   - audrey_neveu
@@ -8,45 +8,16 @@ speaker:
   - olivier_gaudin
 ---
 
-<ul id="grid-premium">
-      <li><img align="left" alt="GenevaJug" border="0" src=
-      "/images/geneva-jug-duke-181.png" title="GenevaJug"></li>
-      <li>
-        <a href="http://www.augg.ch/" target="_blank"><img align=
-        "left" alt="AUGG" border="0" src="/images/AUGG_Logo.png"
-        title="AUGG"></a>
-      </li>
-      <li>
-        <a href="http://www.meetup.com/jsromandie/" target=
-        "_blank"><img align="left" alt="JSRomandie" border="0" src=
-        "/images/jsromandie.jpeg" title="JSRomandie"></a>
-      </li>
-      <li>
-        <a href="http://genevarb.com/" target="_blank"><img align=
-        "left" alt="Geneva Ruby Brigade" border="0" src=
-        "/images/genevarb.png" title="Geneva Ruby Brigade"></a>
-      </li>
-</ul>
-{% assign speaker0id="/speakers/"|append: page.speaker[0]  %}
-{% assign speaker1id="/speakers/"|append: page.speaker[1]  %}
-{% assign speaker2id="/speakers/"|append: page.speaker[2]  %}
-{% assign speaker3id="/speakers/"|append: page.speaker[3]  %}
-{% assign speaker0 = site.speakers|where:"id", speaker0id |first%}
-{% assign speaker1 = site.speakers|where:"id", speaker1id |first%}
-{% assign speaker2 = site.speakers|where:"id", speaker2id |first%}
-{% assign speaker3 = site.speakers|where:"id", speaker3id |first%}
-{% assign speakersurl = "/jug/speakers.html?speaker=" %}
+To celebrate its 3rd anniversary, GenevaJUG invites other user groups from French-speaking Switzerland for a special evening “Proud to be a Developer”
 
-Pour fêter ses 3 ans le GenevaJUG invite les autres users groups de Suisse Romande pour une soirée spéciale “Fier d’être développeur”
+**Proud to be a Developer** by Pierre Pezziardi
 
-**Fier d’être informaticien** par **[{{speaker0.title}}]({{speakersurl}}{{page.speaker[0]}})**
+In 2013, what place does the developer occupy in the enterprise? How can their role, their ability to innovate and act influence its effectiveness? From the role of spectator to the role of actor, what can we each do, on a daily basis, so that the Developer profession is perceived as a wealth to cultivate rather than as a cost to reduce?
 
-En 2013, quelle place occupe le développeur dans l’entreprise ? Comment son rôle, sa capacité à innover et à agir peuvent-ils influencer l’efficacité de celle-ci ? Du rôle de spectacteur au rôle d’acteur, que pouvons-nous faire chacun, au quotidien, pour que le métier de Développeur soit perçu comme une richesse à cultiver plus que comme un coût à diminuer ?
+**Programatoo** by Audrey Neveu
 
-**Programatoo** par **[{{speaker1.title}}]({{speakersurl}}{{page.speaker[1]}})**
+While computer science is increasingly present in our lives, its learning at school remains very superficial: a bit of internet, some word processing software... but no programming. At a time when children are born with these technologies, we don’t bother to give them the keys to become users of computer tools, and not just consumers. But then... how do we get them to discover our profession and our passion? This is the objective that Programatoo set itself, and I will present what we have put in place to achieve it.
 
-Alors que l’informatique est de plus en plus présente dans notre vie, son apprentissage à l’école reste très superficiel : un peu d’internet, un peu de logiciel type traitement de texte… mais pas de programmation. A l’heure où les enfants naissent avec ces technologies, on ne prend pas la peine de leur donner les clés pour devenir utilisateur de l’outil informatique, et pas seulement consommateur. Mais alors … comment leur faire découvrir notre métier et notre passion ? C’est l’objectif que s’est fixé Programatoo et je vous présenterai ce que nous avons mis en place pour y parvenir.
+**Developing is Testing?** by Freddy Mallet and Olivier Gaudin
 
-**Développer c’est Tester ?** par **[{{speaker2.title}}]({{speakersurl}}{{page.speaker[2]}})** et **[{{speaker3.title}}]({{speakersurl}}{{page.speaker[3]}})**
-
-Le développement logiciel est l’activité coeur chez SonarSource, celle qui mobilise les passions et les énergies. Lors de cette session de 40 minutes, nous vous présenterons 4 ans d’évolution des pratiques de développement et ce sans utiliser de buzzwords ! 
+Software development is the core activity at SonarSource, the one that mobilizes passions and energies. During this 40-minute session, we will present 4 years of evolution in development practices without using buzzwords! 

@@ -1,15 +1,15 @@
 ---
 layout: post
-title: Soirée Performance
+title: Performance Evening
 speaker:
   - claude_falguiere
 slideshare:
   - 9682725
 ---
-Je constate souvent que les gens cherchent la cause des problèmes de performance sans stratégie et sans coopérer entre métiers.
+I often notice that people search for the cause of performance problems without a strategy and without cooperating between different disciplines.
 
-Sur la base de mon expérience, je vais présenter des moyens qui permettent de partager l’information et élaborer un diagnostic de problème deperformance :
-* comment procéder pour ne pas chercher au hasard,
-* quelles informations sont utiles,
-* les patterns de comportement qu’on retrouve souvent et qui nous mettent sur une piste,
-* les vérifications à faire via le monitoring ou les logs pour confirmer l’hypothèse
+Based on my experience, I will present means that allow you to share information and develop a diagnosis of performance problems:
+* how to proceed to avoid searching randomly,
+* what information is useful,
+* the behavior patterns we often find and that put us on a lead,
+* the verifications to make via monitoring or logs to confirm the hypothesis

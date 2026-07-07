@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Déployer Vault et Consul sur Kubernetes
+title: Deploying Vault and Consul on Kubernetes
 speaker:
   - vincent_sevel
 location: Fusion
@@ -9,16 +9,15 @@ address: 50 Avenue de la Praille 1227 Carouge.
 transport:  P+R Etoile
 parking: P+R Etoile
 ---
-Les enjeux de Kubernetes dépassent largement le cadre feutré du déploiement des applications stateless 12 factors.
+The challenges of Kubernetes go far beyond the quiet framework of deploying stateless 12-factor applications.
 
-A travers sa versatilité, Kubernetes s’affirme de manière croissante comme la plateforme universelle de déploiement.
+Through its versatility, Kubernetes is increasingly establishing itself as the universal deployment platform.
 
-Kubernetes peut donc être utilisé pour déployer vos composants applicatifs, mais également les technologies d’infrastructure qui les soutiennent, y compris quand ces technologies ont été conçues avant l’émergence de Kubernetes.
+Kubernetes can therefore be used to deploy your application components, but also the infrastructure technologies that support them, including when these technologies were designed before the emergence of Kubernetes.
 
-L’exercice d’intégration d’une technologie legacy dans Kubernetes est intéressant pour 2 raisons :
-* La première est purement pédagogique : en se confrontant à l’intégration d’une technologie on est forcé de se poser les bonnes questions, d’appréhender les concepts et la philosophie du produit, de comprendre les options à disposition et leurs limites. On ressort de l’exercice avec quelques bleus, mais surtout une connaissance accrue de la plateforme qui sera utile pour les intégrations futures d’applications legacy.
+The exercise of integrating legacy technology into Kubernetes is interesting for 2 reasons:
+* The first is purely educational: when confronting the integration of a technology, you are forced to ask the right questions, to understand the concepts and philosophy of the product, to understand the options available and their limitations. You come out of the exercise with some bumps, but above all with increased knowledge of the platform that will be useful for future integrations of legacy applications.
 
-* La deuxième est pragmatique et utilitaire : l’intégration d’une technologie tierce dans Kubernetes offre une opportunité de réduire l’empreinte des intégrations sur mesure dans le système d’information et amène en même temps tous les avantages de Kubernetes en terme d’administrabilité : infrastructure as code, ‘desired state’, cycle de vie, surveillance, …
+* The second is pragmatic and utilitarian: integrating third-party technology into Kubernetes offers an opportunity to reduce the footprint of custom integrations in the information system and at the same time brings all the advantages of Kubernetes in terms of manageability: infrastructure as code, ‘desired state’, lifecycle, monitoring, etc.
 
-
-Dans cette présentation nous prendrons l’exemple spécifique des technologies HashiCorp Vault & Consul et montrerons comment elles peuvent s’intégrer dans une environnement Kubernetes. Nous évaluerons plusieurs aspects comme le stateful, l’exposition, la haute disponibilité, la sécurisation et la surveillance. A la fin de l’exercice, nous aurons une solution prod-ready, mais surtout nous aurons acquis une expérience et une connaissance qui nous sera utile pour continuer sur le chemin de l’adoption de Kubernetes.
+In this presentation, we’ll take the specific example of HashiCorp Vault & Consul technologies and show how they can integrate into a Kubernetes environment. We’ll evaluate several aspects such as stateful, exposure, high availability, security, and monitoring. At the end of the exercise, we’ll have a production-ready solution, but above all we’ll have gained experience and knowledge that will be useful to us as we continue on the path of Kubernetes adoption.

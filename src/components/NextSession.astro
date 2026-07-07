@@ -1,0 +1,134 @@
+---
+interface Props {
+  locale: 'en' | 'fr';
+}
+
+const { locale } = Astro.props;
+
+const messages = {
+  en: {
+    title: 'Next Session',
+    heading: '🔮 Coming Soon',
+    message: 'The next session is currently under discussion! We\'re working on bringing you an exciting technical presentation.',
+    teaser: 'Stay tuned for updates and exciting news about our upcoming event!',
+  },
+  fr: {
+    title: 'Prochaine Session',
+    heading: '🔮 À Venir',
+    message: 'La prochaine session est en discussion! Nous travaillons pour vous apporter une présentation technique passionnante.',
+    teaser: 'Restez à l\'écoute pour les mises à jour et les nouvelles enthousiasmantes sur notre prochain événement!',
+  },
+};
+
+const content = messages[locale];
+---
+
+<section id="next-session" class="next-session">
+  <div class="container">
+    <h2>{content.title}</h2>
+    <div class="teaser-card">
+      <h3>{content.heading}</h3>
+      <p class="teaser-message">{content.message}</p>
+      <p class="teaser-follow-up">{content.teaser}</p>
+      <div class="teaser-decoration">✨</div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .next-session {
+    scroll-margin-top: 80px;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: var(--text-primary);
+  }
+
+  .teaser-card {
+    background: var(--bg-primary);
+    border: 2px solid #007bff;
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.15);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .teaser-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #007bff, #0056b3);
+  }
+
+  .teaser-card h3 {
+    font-size: 2.5rem;
+    color: #007bff;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+  }
+
+  .teaser-message {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  .teaser-follow-up {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    font-style: italic;
+  }
+
+  .teaser-decoration {
+    font-size: 2rem;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .next-session {
+      padding: 2rem 1rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    .teaser-card {
+      padding: 2rem 1rem;
+    }
+
+    .teaser-card h3 {
+      font-size: 1.8rem;
+    }
+
+    .teaser-message {
+      font-size: 1rem;
+    }
+  }
+</style>

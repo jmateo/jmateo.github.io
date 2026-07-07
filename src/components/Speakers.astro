@@ -6,7 +6,7 @@ interface Props {
 }
 
 const { locale } = Astro.props;
-const speakers = getSpeakers();
+const speakers = getSpeakers(locale);
 
 const titles = {
   en: 'Speakers',
@@ -21,7 +21,7 @@ const title = titles[locale];
     <h2>{title}</h2>
     <div class="speakers-grid">
       {speakers.map((speaker) => (
-        <a href={`/speaker/${speaker.id}`} class="speaker-card-link">
+        <a href={locale === 'en' ? `/speaker/${speaker.id}` : `/fr/speaker/${speaker.id}`} class="speaker-card-link">
           <article class="speaker-card">
             {speaker.image && (
               <div class="speaker-image-wrapper">
