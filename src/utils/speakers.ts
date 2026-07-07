@@ -21,7 +21,7 @@ function nameToImageFilename(name: string): string {
 
 export function getSpeakers(locale: string = 'en'): Speaker[] {
   const speakersDir = path.join(process.cwd(), '_speakers', locale);
-  const imagesDir = path.join(process.cwd(), 'images', 'speakers');
+  const imagesDir = path.join(process.cwd(), 'public', 'speakers');
   const imageFiles = new Set(fs.readdirSync(imagesDir).map(f => f.replace('.jpg', '').replace('.png', '')));
 
   if (!fs.existsSync(speakersDir)) {
@@ -45,7 +45,7 @@ export function getSpeakers(locale: string = 'en'): Speaker[] {
       return {
         name,
         bio: content.trim(),
-        image: hasImage ? `/images/speakers/${imageFilename}.jpg` : undefined,
+        image: hasImage ? `/speakers/${imageFilename}.jpg` : undefined,
         id,
       };
     })
