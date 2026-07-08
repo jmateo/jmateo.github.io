@@ -22,6 +22,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
+      - uses: actions/configure-pages@v5
+
       - name: Install, build, and upload your site output
         uses: withastro/action@v6
         with:
@@ -35,11 +37,22 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+
+
+    permissions:
+      pages: write
+      id-token: write    
+
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+
+      - name: Debug OIDC
+        run: |
+          echo "ACTIONS_ID_TOKEN_REQUEST_URL=${ACTIONS_ID_TOKEN_REQUEST_URL}"
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
