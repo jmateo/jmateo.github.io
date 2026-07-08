@@ -29,10 +29,6 @@ jobs:
         with:
           node-version: 24
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./dist
 
   deploy:
     needs: build
