@@ -1,0 +1,161 @@
+---
+import { getSpeakers } from '../utils/speakers';
+
+interface Props {
+  locale: 'en' | 'fr';
+}
+
+const { locale } = Astro.props;
+const speakers = getSpeakers(locale);
+
+const titles = {
+  en: 'Speakers',
+  fr: 'Speakers',
+};
+
+const title = titles[locale];
+---
+
+<section id="speakers" class="speakers">
+  <div class="container">
+    <h2>{title}</h2>
+    <div class="speakers-grid">
+      {speakers.map((speaker) => (
+        <a href={locale === 'en' ? `/speaker/${speaker.id}` : `/fr/speaker/${speaker.id}`} class="speaker-card-link">
+          <article class="speaker-card">
+            {speaker.image && (
+              <div class="speaker-image-wrapper">
+                <img src={speaker.image} alt={speaker.name} class="speaker-image" />
+              </div>
+            )}
+            <h3 class="speaker-name">{speaker.name}</h3>
+            <p class="speaker-bio">{speaker.bio}</p>
+          </article>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .speakers {
+    scroll-margin-top: 80px;
+    padding: 4rem 2rem;
+    background: var(--bg-secondary);
+    overflow-x: hidden;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: var(--text-primary);
+  }
+
+  .speakers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .speaker-card-link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .speaker-card {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .speaker-card-link:hover .speaker-card {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+
+  :root[data-theme='dark'] .speaker-card-link:hover .speaker-card {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .speaker-image-wrapper {
+    width: 120px;
+    height: 120px;
+    margin: 1rem auto 0;
+    overflow: hidden;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+  }
+
+  .speaker-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .speaker-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    text-align: left;
+    color: var(--text-primary);
+  }
+
+  .speaker-bio {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+
+  @media (max-width: 768px) {
+    .speakers {
+      padding: 2rem 1rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .speakers-grid {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1rem;
+    }
+
+    .speaker-image-wrapper {
+      width: 100px;
+      height: 100px;
+    }
+
+    .speaker-name {
+      font-size: 0.95rem;
+      margin: 0.5rem 0.75rem 0.25rem;
+    }
+
+    .speaker-bio {
+      font-size: 0.8rem;
+      margin: 0 0.75rem 0.75rem;
+      line-height: 1.4;
+      display: none;
+    }
+  }
+</style>

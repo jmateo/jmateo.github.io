@@ -1,0 +1,277 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+
+interface Props {
+  locale: 'en' | 'fr';
+}
+
+const { locale } = Astro.props;
+
+const menuItems = {
+  en: [
+    { label: 'About GenevaJUG', href: '/#about' },
+    { label: 'Next session', href: '/#next-session' },
+    { label: 'Past sessions', href: '/#past-sessions' },
+    { label: 'Speakers', href: '/#speakers' }
+  ],
+  fr: [
+    { label: 'À propos de GenevaJUG', href: '/fr#about' },
+    { label: 'Prochaine session', href: '/fr#next-session' },
+    { label: 'Sessions passées', href: '/fr#past-sessions' },
+    { label: 'Speakers', href: '/fr#speakers' }
+  ],
+};
+
+const allItems = menuItems[locale];
+const firstItem = allItems[0];
+const moreItems = allItems.slice(1);
+---
+
+<header class="header">
+  <div class="header-container">
+    <div class="logo">
+      <a href={locale === 'en' ? '/' : '/fr'}>
+        <img src="/apple_touch_icon.png" alt="GenevaJUG" class="logo-img" />
+        <span class="logo-text">GenevaJUG</span>
+      </a>
+    </div>
+    <nav class="nav">
+      <ul class="nav-list desktop-nav">
+        {allItems.map((item) => (
+          <li class="nav-item">
+            <a href={item.href} class="nav-link">{item.label}</a>
+          </li>
+        ))}
+      </ul>
+
+      <div class="mobile-nav">
+        <a href={firstItem.href} class="nav-link">{firstItem.label}</a>
+        <div class="dropdown-wrapper">
+          <button class="dropdown-toggle" aria-label="More menu items">⋮</button>
+          <div class="dropdown-menu">
+            {moreItems.map((item) => (
+              <a href={item.href} class="dropdown-item">{item.label}</a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="header-tools">
+      <LanguageSwitcher {locale} />
+      <ThemeToggle />
+    </div>
+  </div>
+</header>
+
+<script>
+  document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      const wrapper = toggle.parentElement;
+      wrapper?.classList.toggle('open');
+    });
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
+    if (!target.closest('.dropdown-wrapper')) {
+      document.querySelectorAll('.dropdown-wrapper').forEach(w => {
+        w.classList.remove('open');
+      });
+    }
+  });
+
+  // Close dropdown when clicking a menu item
+  document.querySelectorAll('.dropdown-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const wrapper = item.closest('.dropdown-wrapper');
+      wrapper?.classList.remove('open');
+    });
+  });
+</script>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--bg-primary);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.75rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .header-tools {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .logo a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .logo a:hover {
+    opacity: 0.8;
+  }
+
+  .logo-img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+
+  .logo-text {
+    font-size: 1.25rem;
+  }
+
+  .nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 1.2rem;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .nav-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
+  .nav-link:hover {
+    color: var(--text-primary);
+  }
+
+  .mobile-nav {
+    display: none;
+    gap: 0.5rem;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .mobile-nav .nav-link {
+    flex: 1;
+    min-width: 0;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  .dropdown-wrapper {
+    position: relative;
+  }
+
+  .dropdown-toggle {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .dropdown-toggle:hover {
+    color: var(--text-primary);
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    min-width: 180px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    z-index: 1000;
+    margin-top: 0.5rem;
+  }
+
+  .dropdown-wrapper.open .dropdown-menu {
+    display: flex;
+  }
+
+  .dropdown-item {
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid var(--border-color);
+    display: block;
+  }
+
+  .dropdown-item:last-child {
+    border-bottom: none;
+  }
+
+  .dropdown-item:hover {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+  }
+
+  @media (max-width: 768px) {
+    .header-container {
+      padding: 0.4rem 0.5rem;
+      gap: 0.3rem;
+    }
+
+    .logo-text {
+      display: none;
+    }
+
+    .logo-img {
+      width: 32px;
+      height: 32px;
+    }
+
+    .nav-list.desktop-nav {
+      display: none;
+    }
+
+    .mobile-nav {
+      display: flex;
+      gap: 0.3rem;
+    }
+
+    .nav-link {
+      font-size: 0.8rem;
+    }
+
+    .header-tools {
+      gap: 0.5rem;
+    }
+  }
+</style>
