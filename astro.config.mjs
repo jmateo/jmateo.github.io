@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 
 export default defineConfig({
   // Enable for GitHub Pages deployment with custom domain
-  site: 'https://jmateo.github.io',
+  site: 'https://genevajug.org',
   base: '/',
   outDir: './dist',
   integrations: [],
