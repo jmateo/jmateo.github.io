@@ -1,8 +1,8 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  // Enable for GitHub Pages deployment
-  site: 'https://jmateo.github.io',
+  // Enable for GitHub Pages deployment with custom domain
+  site: 'https://genevajug.org',
   base: '/',
   outDir: './dist',
   integrations: [],
@@ -12,12 +12,5 @@ export default defineConfig({
     routing: {
       prefixDefaultLocale: false,
     },
-  },
-  vite: {
-    server: {
-      allowedHosts: [
-        "4321--main--python-dev-env--mateo.coder.loimkube.biz.lodh.com",
-      ],
-    },
-  },
+  }
 });
