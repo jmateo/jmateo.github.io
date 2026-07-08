@@ -42,11 +42,14 @@ const title = titles[locale];
     scroll-margin-top: 80px;
     padding: 4rem 2rem;
     background: var(--bg-secondary);
+    overflow-x: hidden;
   }
 
   .container {
     max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
+    overflow-x: hidden;
   }
 
   h2 {
@@ -60,6 +63,8 @@ const title = titles[locale];
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 2rem;
+    width: 100%;
+    overflow-x: hidden;
   }
 
   .speaker-card-link {
@@ -122,12 +127,35 @@ const title = titles[locale];
   }
 
   @media (max-width: 768px) {
+    .speakers {
+      padding: 2rem 1rem;
+    }
+
     h2 {
       font-size: 1.5rem;
+      margin-bottom: 1.5rem;
     }
 
     .speakers-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1rem;
+    }
+
+    .speaker-image-wrapper {
+      width: 100px;
+      height: 100px;
+    }
+
+    .speaker-name {
+      font-size: 0.95rem;
+      margin: 0.5rem 0.75rem 0.25rem;
+    }
+
+    .speaker-bio {
+      font-size: 0.8rem;
+      margin: 0 0.75rem 0.75rem;
+      line-height: 1.4;
+      display: none;
     }
   }
 </style>
