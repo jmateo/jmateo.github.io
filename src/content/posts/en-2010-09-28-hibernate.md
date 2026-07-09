@@ -5,7 +5,7 @@ speaker:
   - iulian_dragos
 slideshare: 
   - 5359304
-img: /images/events/hibernate_logo.png
+img: /events/hibernate_logo.png
 locale: en
 ---
 Hibernate is a powerful and complex framework, and its role in modern transactional applications makes it the critical component from the perspective of application performance.

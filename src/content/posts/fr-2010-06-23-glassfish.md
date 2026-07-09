@@ -5,7 +5,7 @@ speaker:
 slideshare: 
   - 5356321
 picasa: 5564943892562152337
-img: /images/events/glassfish_logo.png
+img: /events/glassfish_logo.png
 locale: fr
 ---
 

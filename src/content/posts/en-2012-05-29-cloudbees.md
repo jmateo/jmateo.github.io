@@ -2,7 +2,7 @@
 title: Cloud Evening
 speaker:
   - sacha_labourey
-img: /images/events/cloudbees-logo.png
+img: /events/cloudbees-logo.png
 locale: en
 ---
 The Cloud is profoundly transforming the IT industry. We will see what this change means and, more specifically, what options are available to developers.

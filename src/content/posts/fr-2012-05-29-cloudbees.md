@@ -2,7 +2,7 @@
 title: Soirée Cloud
 speaker:
   - sacha_labourey
-img: /images/events/cloudbees-logo.png
+img: /events/cloudbees-logo.png
 locale: fr
 ---
 Le Cloud est en train de profondément transformer l'industrie de l'IT. Nous verrons ce que ce changement signifie et, plus précisément, quelles sont les options qui s'offrent aux développeurs.
