@@ -1,6 +1,6 @@
+import { getCollection } from 'astro:content';
 import fs from 'fs';
 import path from 'path';
-import matter from 'gray-matter';
 
 interface Speaker {
   name: string;
@@ -19,32 +19,32 @@ function nameToImageFilename(name: string): string {
     .replace(/[ç]/g, 'c');
 }
 
-export function getSpeakers(locale: string = 'en'): Speaker[] {
-  const speakersDir = path.join(process.cwd(), '_speakers', locale);
+export async function getSpeakers(locale: string = 'en'): Promise<Speaker[]> {
   const imagesDir = path.join(process.cwd(), 'public', 'speakers');
-  const imageFiles = new Set(fs.readdirSync(imagesDir).map(f => f.replace('.jpg', '').replace('.png', '')));
+  const imageFiles = new Set(
+    fs.readdirSync(imagesDir).map((f) => f.replace('.jpg', '').replace('.png', ''))
+  );
 
-  if (!fs.existsSync(speakersDir)) {
-    return [];
-  }
+  const allSpeakers = await getCollection('speakers');
 
-  const files = fs.readdirSync(speakersDir);
+  const speakers = allSpeakers
+    .filter((speaker) => speaker.data.locale === locale)
+    .map((speaker) => {
+      const filename = speaker.id.replace(/\.md$/, '');
+      // Remove locale prefix to get slug
+      const idWithoutLocale = filename.startsWith(`${locale}-`)
+        ? filename.slice(locale.length + 1)
+        : filename;
+      // Extract ID from filename (remove date prefix)
+      const id = idWithoutLocale.replace(/^\d{4}-\d{2}-\d{2}-/, '');
 
-  const speakers = files
-    .filter((file) => file.endsWith('.md'))
-    .map((file) => {
-      const filePath = path.join(speakersDir, file);
-      const fileContent = fs.readFileSync(filePath, 'utf-8');
-      const { data, content } = matter(fileContent);
-
-      const name = data.title || 'Unknown';
+      const name = speaker.data.title || 'Unknown';
       const imageFilename = nameToImageFilename(name);
       const hasImage = imageFiles.has(imageFilename);
-      const id = file.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace('.md', '');
 
       return {
         name,
-        bio: content.trim(),
+        bio: speaker.body.trim(),
         image: hasImage ? `/speakers/${imageFilename}.jpg` : undefined,
         id,
       };
@@ -62,8 +62,8 @@ export function getSpeakers(locale: string = 'en'): Speaker[] {
   });
 }
 
-export function getAllSpeakers(): Speaker[] {
-  const enSpeakers = getSpeakers('en');
-  const frSpeakers = getSpeakers('fr');
+export async function getAllSpeakers(): Promise<Speaker[]> {
+  const enSpeakers = await getSpeakers('en');
+  const frSpeakers = await getSpeakers('fr');
   return [...enSpeakers, ...frSpeakers];
 }

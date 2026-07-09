@@ -1,6 +1,4 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
+import { getCollection } from 'astro:content';
 import { marked } from 'marked';
 
 interface PostMetadata {
@@ -18,36 +16,36 @@ interface Post {
   locale: string;
 }
 
-export function getPosts(locale: string = 'en'): Post[] {
-  const postsDir = path.join(process.cwd(), '_posts', locale);
+export async function getPosts(locale: string = 'en'): Promise<Post[]> {
+  const allPosts = await getCollection('posts');
 
-  if (!fs.existsSync(postsDir)) {
-    return [];
-  }
+  const posts = allPosts
+    .filter((post) => post.data.locale === locale)
+    .map((post) => {
+      const filename = post.id.replace(/\.md$/, '');
+      // Remove locale prefix from filename to get slug
+      const slug = filename.startsWith(`${locale}-`)
+        ? filename.slice(locale.length + 1)
+        : filename;
 
-  const files = fs.readdirSync(postsDir);
-
-  const posts = files
-    .filter((file) => file.endsWith('.md'))
-    .map((file) => {
-      const filePath = path.join(postsDir, file);
-      const fileContent = fs.readFileSync(filePath, 'utf-8');
-      const { data, content } = matter(fileContent);
-
-      const match = file.match(/^(\d{4}-\d{2}-\d{2})-/);
-      const date = match ? match[1] : '';
+      // Extract date from filename if not in frontmatter
+      let date = post.data.date;
+      if (!date) {
+        const match = slug.match(/^(\d{4}-\d{2}-\d{2})-/);
+        date = match ? match[1] : '';
+      }
 
       return {
-        slug: file.replace(/\.md$/, ''),
+        slug,
         metadata: {
-          title: data.title || 'Untitled',
-          speaker: data.speaker,
-          img: data.img,
-          slideshare: data.slideshare,
+          title: post.data.title || 'Untitled',
+          speaker: post.data.speaker,
+          img: post.data.img,
+          slideshare: post.data.slideshare,
           date,
         },
-        content: marked(content),
-        locale,
+        content: marked(post.body),
+        locale: post.data.locale,
       };
     })
     .sort((a, b) => new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime());
@@ -55,8 +53,8 @@ export function getPosts(locale: string = 'en'): Post[] {
   return posts;
 }
 
-export function getAllPosts(): Post[] {
-  const enPosts = getPosts('en');
-  const frPosts = getPosts('fr');
+export async function getAllPosts(): Promise<Post[]> {
+  const enPosts = await getPosts('en');
+  const frPosts = await getPosts('fr');
   return [...enPosts, ...frPosts];
 }
