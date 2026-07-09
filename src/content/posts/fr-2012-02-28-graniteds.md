@@ -13,4 +13,4 @@ Présentation des nouveautés de Flex 4.6 / AIR 3 pour le développement d'appli
 **2ème partie : Flex et Spring avec GraniteDS par William Drai**
 Après une rapide présentation des fonctionnalités qu'apporte GraniteDS pour l'intégration de Flex et Spring, on passera à la pratique avec le développement en partant de zéro d'une application simple mais incluant l'ensemble des éléments qu'on attend habituellement d'une application d'entreprise : persistance, validation, sécurité et autres joyeusetés.
 
-<center><a href="http://www.augg.ch/"><img src="/images/AUGG_Logo.jpg" alt="AUGG"></a></center>
+<center><a href="http://www.augg.ch/"><img src="/AUGG_Logo.jpg" alt="AUGG"></a></center>

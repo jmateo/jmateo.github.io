@@ -1,6 +1,5 @@
 ---
-
-title: 
+title: Evgeny Mandrikov
 locale: fr
 ---
 

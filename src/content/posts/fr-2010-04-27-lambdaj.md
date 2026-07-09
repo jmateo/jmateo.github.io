@@ -5,7 +5,7 @@ speaker:
 slideshare: 
   - 3919845 
 picasa: 5465277655381713409
-img: /images/events/lambdaj.png
+img: /events/lambdaj.png
 locale: fr
 ---
 

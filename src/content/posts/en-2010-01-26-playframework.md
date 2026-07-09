@@ -5,7 +5,7 @@ speaker:
   - habib_guergachi
 slideshare: 
   - 3017839
-img: /images/events/logo_play.png
+img: /events/logo_play.png
 locale: en
 ---
 

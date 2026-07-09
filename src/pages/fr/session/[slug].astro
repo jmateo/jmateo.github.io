@@ -2,6 +2,7 @@
 import Header from '../../../components/Header.astro';
 import { getAllPosts } from '../../../utils/posts';
 import { getSpeakers } from '../../../utils/speakers';
+import '../../../styles/global.css';
 
 interface Props {
   params: { slug: string };
@@ -101,6 +102,7 @@ export async function getStaticPaths() {
         border-radius: 8px;
         padding: 2rem;
         margin-bottom: 2rem;
+        overflow: hidden;
       }
 
       .session-detail h1 {
@@ -126,11 +128,6 @@ export async function getStaticPaths() {
         margin-bottom: 1rem;
       }
 
-      .session-content img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-      }
 
       .speakers-section {
         margin-top: 3rem;
@@ -236,6 +233,10 @@ export async function getStaticPaths() {
         <div class="session-meta">
           <span>📅 {post.metadata.date}</span>
         </div>
+
+        {post.metadata.img && (
+          <img src={post.metadata.img} alt={post.metadata.title} class="post-image" />
+        )}
 
         <div class="session-content" set:html={post.content}></div>
 

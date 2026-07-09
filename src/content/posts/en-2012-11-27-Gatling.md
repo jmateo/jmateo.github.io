@@ -2,7 +2,7 @@
 title: Gatling
 speaker:
   - nicolas_remond
-img: /images/events/gatling_logo.png
+img: /events/gatling_logo.png
 locale: en
 ---
 Gatling is a next-generation web application stress testing tool developed in Scala and guided by the following principles:
