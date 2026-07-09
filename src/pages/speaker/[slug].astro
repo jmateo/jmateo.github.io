@@ -8,7 +8,7 @@ interface Props {
 }
 
 const { slug } = Astro.params;
-const speakers = getSpeakers('en');
+const speakers = await getSpeakers('en');
 
 const speaker = speakers.find(s => s.id === slug);
 
@@ -16,7 +16,7 @@ if (!speaker) {
   return Astro.redirect('/404');
 }
 
-const allPosts = getAllPosts();
+const allPosts = await getAllPosts();
 const speakerSessions = allPosts.filter(post => {
   const postSpeakers = Array.isArray(post.metadata.speaker)
     ? post.metadata.speaker
@@ -24,8 +24,8 @@ const speakerSessions = allPosts.filter(post => {
   return postSpeakers.includes(speaker.id) && post.locale === 'en';
 });
 
-export function getStaticPaths() {
-  const speakers = getSpeakers('en');
+export async function getStaticPaths() {
+  const speakers = await getSpeakers('en');
   return speakers.map(speaker => ({
     params: { slug: speaker.id },
   }));

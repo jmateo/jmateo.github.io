@@ -8,35 +8,14 @@ interface Props {
 }
 
 const { slug } = Astro.params;
-const allPosts = getAllPosts();
-const post = allPosts.find(p => p.slug === slug);
+const allPosts = await getAllPosts();
+const post = allPosts.find(p => p.slug === slug && p.locale === 'fr');
 
 if (!post) {
   return Astro.redirect('/fr/404');
 }
 
-const sessionLocale = post.locale as 'en' | 'fr';
-const speakers = getSpeakers(sessionLocale);
-
-function nameToImageFilename(name: string): string {
-  return name
-    .toLowerCase()
-    .replace(/\s+/g, '_')
-    .replace(/[éèê]/g, 'e')
-    .replace(/[àâ]/g, 'a')
-    .replace(/[ôö]/g, 'o')
-    .replace(/[ç]/g, 'c');
-}
-
-function nameToSlug(name: string): string {
-  return name
-    .toLowerCase()
-    .replace(/\s+/g, '-')
-    .replace(/[éèê]/g, 'e')
-    .replace(/[àâ]/g, 'a')
-    .replace(/[ôö]/g, 'o')
-    .replace(/[ç]/g, 'c');
-}
+const speakers = await getSpeakers('fr');
 
 const speakerIds = Array.isArray(post.metadata.speaker)
   ? post.metadata.speaker
@@ -46,11 +25,13 @@ const sessionSpeakers = speakerIds
   .map(speakerId => speakers.find(s => s.id === speakerId))
   .filter(Boolean);
 
-export function getStaticPaths() {
-  const allPosts = getAllPosts();
-  return allPosts.map(post => ({
-    params: { slug: post.slug },
-  }));
+export async function getStaticPaths() {
+  const allPosts = await getAllPosts();
+  return allPosts
+    .filter(p => p.locale === 'fr')
+    .map(post => ({
+      params: { slug: post.slug },
+    }));
 }
 ---
 
@@ -143,6 +124,12 @@ export function getStaticPaths() {
 
       .session-content p {
         margin-bottom: 1rem;
+      }
+
+      .session-content img {
+        max-width: 100%;
+        height: auto;
+        display: block;
       }
 
       .speakers-section {

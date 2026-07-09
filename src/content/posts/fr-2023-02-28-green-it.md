@@ -1,0 +1,20 @@
+---
+title: 'GreenIT: Solutions Concrètes pour la Durabilité Environnementale'
+eventstartat: 18h30
+speaker:
+- sarah_genoud_prachex
+location: HEPIA salle B119
+locationlink: https://www.hesge.ch/hepia/
+address: Rue de la Prairie 4, 1202 Genève
+transport: Gare Cornavin à proximité, TPG Arrêt Lyon, Prairie
+parking: Below HEPIA building
+eventbrite: billets-greenit-actionable-solutions-for-environmental-sustainability-
+eventbriteid: 557224723147
+locale: fr
+---
+
+GenevaJUG accueillera **Sarah Genoud-Prachex**
+
+Le sujet de la durabilité environnementale gagne de plus en plus de visibilité de nos jours et de nombreux experts sont d'avis qu'elle aura un impact aussi important sur les entreprises que la révolution numérique.
+
+L'objectif de cette présentation est de montrer l'empreinte numérique que nous laissons constamment et l'effet qu'elle a sur notre environnement, et aussi de donner des suggestions pratiques sur les domaines où nous pouvons concentrer nos efforts pour minimiser cet impact.
