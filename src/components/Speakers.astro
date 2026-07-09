@@ -6,7 +6,7 @@ interface Props {
 }
 
 const { locale } = Astro.props;
-const speakers = getSpeakers(locale);
+const speakers = await getSpeakers(locale);
 
 const titles = {
   en: 'Speakers',

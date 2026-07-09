@@ -8,35 +8,14 @@ interface Props {
 }
 
 const { slug } = Astro.params;
-const allPosts = getAllPosts();
-const post = allPosts.find(p => p.slug === slug);
+const allPosts = await getAllPosts();
+const post = allPosts.find(p => p.slug === slug && p.locale === 'en');
 
 if (!post) {
   return Astro.redirect('/404');
 }
 
-const sessionLocale = post.locale as 'en' | 'fr';
-const speakers = getSpeakers(sessionLocale);
-
-function nameToImageFilename(name: string): string {
-  return name
-    .toLowerCase()
-    .replace(/\s+/g, '_')
-    .replace(/[éèê]/g, 'e')
-    .replace(/[àâ]/g, 'a')
-    .replace(/[ôö]/g, 'o')
-    .replace(/[ç]/g, 'c');
-}
-
-function nameToSlug(name: string): string {
-  return name
-    .toLowerCase()
-    .replace(/\s+/g, '-')
-    .replace(/[éèê]/g, 'e')
-    .replace(/[àâ]/g, 'a')
-    .replace(/[ôö]/g, 'o')
-    .replace(/[ç]/g, 'c');
-}
+const speakers = await getSpeakers('en');
 
 const speakerIds = Array.isArray(post.metadata.speaker)
   ? post.metadata.speaker
@@ -46,11 +25,13 @@ const sessionSpeakers = speakerIds
   .map(speakerId => speakers.find(s => s.id === speakerId))
   .filter(Boolean);
 
-export function getStaticPaths() {
-  const allPosts = getAllPosts();
-  return allPosts.map(post => ({
-    params: { slug: post.slug },
-  }));
+export async function getStaticPaths() {
+  const allPosts = await getAllPosts();
+  return allPosts
+    .filter(p => p.locale === 'en')
+    .map(post => ({
+      params: { slug: post.slug },
+    }));
 }
 ---
 
@@ -145,6 +126,12 @@ export function getStaticPaths() {
         margin-bottom: 1rem;
       }
 
+      .session-content img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
       .speakers-section {
         margin-top: 3rem;
         padding-top: 2rem;
@@ -236,11 +223,11 @@ export function getStaticPaths() {
     </style>
   </head>
   <body>
-    <Header locale={sessionLocale} />
+    <Header locale={'en'} />
 
     <div class="container">
-      <a href={sessionLocale === 'en' ? '/#past-sessions' : '/fr#past-sessions'} class="back-link">
-        {sessionLocale === 'en' ? '← Back to Past Sessions' : '← Retour aux sessions passées'}
+      <a href={'en' === 'en' ? '/#past-sessions' : '/fr#past-sessions'} class="back-link">
+        {'en' === 'en' ? '← Back to Past Sessions' : '← Retour aux sessions passées'}
       </a>
 
       <div class="session-detail">
@@ -255,7 +242,7 @@ export function getStaticPaths() {
         {sessionSpeakers.length > 0 && (
           <div class="speakers-section">
             <h2>
-              {sessionLocale === 'en'
+              {'en' === 'en'
                 ? sessionSpeakers.length === 1 ? 'Speaker' : 'Speakers'
                 : sessionSpeakers.length === 1 ? 'Conférencier' : 'Conférenciers'}
             </h2>
