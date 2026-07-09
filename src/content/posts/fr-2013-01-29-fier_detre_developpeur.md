@@ -13,7 +13,7 @@ locale: fr
       "/images/geneva-jug-duke-181.png" title="GenevaJug"></li>
       <li>
         <a href="http://www.augg.ch/" target="_blank"><img align=
-        "left" alt="AUGG" border="0" src="/images/AUGG_Logo.png"
+        "left" alt="AUGG" border="0" src="/AUGG_Logo.png"
         title="AUGG"></a>
       </li>
       <li>

@@ -2,7 +2,7 @@
 title: Apache Camel
 speaker:
   - guillaume_nodet
-img: /images/events/camel-logo.png
+img: /events/camel-logo.png
 slidashare: 
  - 8344185
 picasa: 5628574328532353793

@@ -12,7 +12,7 @@ locale: en
 ---
 
 <div style="text-align: center;">
-<img src="/images/events/hero_worldtour.png" alt="Logo Quarkus World Tour" class="event-logo-center" />
+<img src="/events/hero_worldtour.png" alt="Logo Quarkus World Tour" class="event-logo-center" />
 </div>
 
 The GenevaJUG is proud to host the Quarkus World Tour for an online session with **Clément Escoffier** and **Guillaume Smet**.

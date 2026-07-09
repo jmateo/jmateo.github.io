@@ -3,7 +3,7 @@ title: Developing RESTful Web APIs with Restlet
 speaker:
   - jerome_louvel
   - thierry_boileau
-img: /images/events/restlet-logo.png
+img: /events/restlet-logo.png
 picasa: 5628575514766659649
 locale: en
 ---

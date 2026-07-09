@@ -5,7 +5,7 @@ speaker:
   - iulian_dragos
 slideshare: 
   - 5359304
-img: /images/events/hibernate_logo.png
+img: /events/hibernate_logo.png
 locale: fr
 ---
 

@@ -3,7 +3,7 @@ title: Développer son API web RESTful avec Restlet
 speaker:
   - jerome_louvel
   - thierry_boileau
-img: /images/events/restlet-logo.png
+img: /events/restlet-logo.png
 picasa: 5628575514766659649
 locale: fr
 ---

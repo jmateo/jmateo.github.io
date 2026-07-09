@@ -2,7 +2,7 @@
 title: Gatling
 speaker:
   - nicolas_remond
-img: /images/events/gatling_logo.png
+img: /events/gatling_logo.png
 locale: fr
 ---
 Gatling est un outil de stress d’applications web nouvelle génération développé en Scala et guidé par les principes suivants :

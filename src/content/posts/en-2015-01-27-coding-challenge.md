@@ -4,11 +4,11 @@ youtube: TRqwn3g2isE
 locale: en
 ---
 <ul id="grid-premium">
-      <li><img src="/images/geneva-jug-duke-181.png" alt="GenevaJUG"></li>
-      <li><a href="http://www.meetup.com/Geneva-NET-User-Group/"><img src="/images/geneva.net.jpeg" alt="Geneva .NET User Group"></a></li>
-      <li><a href="http://www.meetup.com/Scala-Romandie/"><img src="/images/scala-romandie.jpeg" alt="Scala Romandie"></a></li>
-      <li><a href="http://dockgen.ch/"><img src="/images/docker-geneva.jpeg" alt="Docker Geneva"></a></li>
-      <li><a href="http://genevamug.ch/"><img src="/images/genevamug.jpeg" alt="GenevaMUG"></a></li>
+      <li><img src="/geneva-jug-duke-181.png" alt="GenevaJUG"></li>
+      <li><a href="http://www.meetup.com/Geneva-NET-User-Group/"><img src="/geneva.net.jpeg" alt="Geneva .NET User Group"></a></li>
+      <li><a href="http://www.meetup.com/Scala-Romandie/"><img src="/scala-romandie.jpeg" alt="Scala Romandie"></a></li>
+      <li><a href="http://dockgen.ch/"><img src="/docker-geneva.jpeg" alt="Docker Geneva"></a></li>
+      <li><a href="http://genevamug.ch/"><img src="/genevamug.jpeg" alt="GenevaMUG"></a></li>
 </ul>
 
 To celebrate the 5th anniversary of GenevaJUG, we partnered with other user groups in French-speaking Switzerland (Scala Romandie, Geneva .NET, GenevaMUG, Docker Geneva) to launch a development competition.

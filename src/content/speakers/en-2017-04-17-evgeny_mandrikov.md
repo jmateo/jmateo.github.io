@@ -1,5 +1,5 @@
 ---
-title: 
+title: Evgeny Mandrikov
 locale: en
 ---
 Software Gardener, addicted to open source and code quality, hired by SonarSource after creation of improved open source analogs of their commercial products.
