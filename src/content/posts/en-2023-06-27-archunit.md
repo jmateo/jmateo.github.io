@@ -21,5 +21,5 @@ Of course, you could have one or more experienced developers who look at the cod
 
 But a safer way is to simply define the components in the code and the rules for these components that can be automatically tested, for example as part of your continuous integration build.
 
-We’ll see how ArchUnit can help us test our architecture to contribute to the quality of our code, and also how to help new developers get familiar with these rules. 
+We’ll see how ArchUnit can help us test our architecture to contribute to the quality of our code and also how to help new developers get familiar with these rules. 
 

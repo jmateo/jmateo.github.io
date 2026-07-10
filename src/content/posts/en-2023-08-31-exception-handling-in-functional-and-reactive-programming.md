@@ -18,5 +18,5 @@ locale: en
 Functional and reactive programming is gaining popularity and use. 
 One hurdle developers face using these approaches is in exception handling. 
 Dealing with exceptions in these styles is confusing in the beginning and is often messy and error prone. 
-In this presentation we will step back and take a closer look at exception handling, about their role in functional and reactive programming, and discuss the dos and don'ts for exception handling. 
+In this presentation we will step back and take a closer look at exception handling, about their role in functional and reactive programming and discuss the dos and don'ts for exception handling. 
 We will learn using concrete examples and live coding to illustrate the problem and the possible solutions.

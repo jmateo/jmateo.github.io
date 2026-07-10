@@ -9,7 +9,7 @@ img: /events/lambdaj.png
 locale: en
 ---
 
-LambdaJ library makes it easy to manipulate collections in a pseudo-functional and statically typed way. To iterate over collections and nested loops is often error prone, particularly when mixed with conditional statements, and it is difficult to read and maintain the resulting code. LambdaJ uses functional programming techniques to address these issues while preserving the advantages of static typing in Java.
+LambdaJ library makes it easy to manipulate collections in a pseudo-functional and statically typed way. To iterate over collections and nested loops is often error prone, particularly when mixed with conditional statements and it is difficult to read and maintain the resulting code. LambdaJ uses functional programming techniques to address these issues while preserving the advantages of static typing in Java.
 
 Through a straightforward DSL, LambdaJ reduces code complexity when writing iterations over collections by allowing you to filter, convert, group, aggregate and sort items with no need to write a single explicit loop.
 

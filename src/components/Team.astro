@@ -98,11 +98,10 @@ const title = titles[locale];
 
   .team-members {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
     width: 100%;
     overflow-x: hidden;
-    max-width: 600px;
   }
 
   .member-card-link {
@@ -114,7 +113,7 @@ const title = titles[locale];
     background: var(--bg-secondary);
     border: 1px solid var(--border-color);
     border-radius: 8px;
-    padding: 1.5rem;
+    padding: 1rem;
     text-align: center;
     transition: all 0.3s ease;
   }
@@ -138,9 +137,9 @@ const title = titles[locale];
   }
 
   .member-image-wrapper {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto 1rem;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 0.75rem;
     overflow: hidden;
     background: var(--bg-primary);
     border-radius: 8px;
@@ -154,14 +153,14 @@ const title = titles[locale];
   }
 
   .member-name {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     font-weight: 600;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
     color: var(--text-primary);
   }
 
   .member-role {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: var(--text-muted);
     margin: 0;
   }
@@ -188,7 +187,7 @@ const title = titles[locale];
 
     .team-members {
       grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
+      gap: 1.5rem;
     }
 
     .member-card {

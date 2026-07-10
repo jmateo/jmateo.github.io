@@ -28,6 +28,6 @@ The first is purely educational: you are forced to ask the right questions.
 
 The second is pragmatic and utilitarian: integration offers an opportunity to reduce the footprint of custom integrations in the information system and at the same time brings all the advantages of Kubernetes in terms of manageability.
 
-In this presentation, we’ll take the specific example of HashiCorp Vault & Consul technologies and show how they can integrate into a Kubernetes environment. We’ll evaluate several aspects such as stateful, exposure, high availability, security, and monitoring.
+In this presentation, we’ll take the specific example of HashiCorp Vault & Consul technologies and show how they can integrate into a Kubernetes environment. We’ll evaluate several aspects such as stateful, exposure, high availability, security and monitoring.
 
 At the end of the exercise, we’ll have a production-ready solution, but above all, we’ll have gained experience and knowledge that will be useful to us as we continue on the path of Kubernetes adoption.

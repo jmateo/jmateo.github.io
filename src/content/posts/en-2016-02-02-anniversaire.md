@@ -20,7 +20,7 @@ Ionic, where to start? But what’s behind it? How do we manage multi-platform? 
 
 **Testing Behaviors: What are we talking about?** by Benjamin Leroux
 
-The idea of this quickies is to highlight that in BDD-type approaches, we never really test behaviors but rather examples of them, and to provide some insights to address this issue. With some implementation examples in Java.
+The idea of this quickies is to highlight that in BDD-type approaches, we never really test behaviors but rather examples of them and to provide some insights to address this issue. With some implementation examples in Java.
 
 **Let’s bury code coverage** by Bertrand Dickele
 
@@ -34,4 +34,4 @@ The relational database is the default choice for many projects, but is it alway
 
 **Feedback - Architecture of a Lightweight Integration Bus** by JC Plessis
 
-For one of our private banking clients, we consolidate data from different backends into REST services, exposing a unified business model. Everything is based on a microservice architecture and orchestrated by Apache Camel EAI. Through this presentation, we will discuss the architecture we implemented, the constraints, successes, and pitfalls we encountered. Finally, we will conclude with a vision of the architecture as we would see it today with the perspective of this experience.
+For one of our private banking clients, we consolidate data from different backends into REST services, exposing a unified business model. Everything is based on a microservice architecture and orchestrated by Apache Camel EAI. Through this presentation, we will discuss the architecture we implemented, the constraints, successes and pitfalls we encountered. Finally, we will conclude with a vision of the architecture as we would see it today with the perspective of this experience.

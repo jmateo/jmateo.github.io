@@ -16,7 +16,7 @@ In 2013, what place does the developer occupy in the enterprise? How can their r
 
 **Programatoo** by Audrey Neveu
 
-While computer science is increasingly present in our lives, its learning at school remains very superficial: a bit of internet, some word processing software... but no programming. At a time when children are born with these technologies, we don’t bother to give them the keys to become users of computer tools, and not just consumers. But then... how do we get them to discover our profession and our passion? This is the objective that Programatoo set itself, and I will present what we have put in place to achieve it.
+While computer science is increasingly present in our lives, its learning at school remains very superficial: a bit of internet, some word processing software... but no programming. At a time when children are born with these technologies, we don’t bother to give them the keys to become users of computer tools and not just consumers. But then... how do we get them to discover our profession and our passion? This is the objective that Programatoo set itself and I will present what we have put in place to achieve it.
 
 **Developing is Testing?** by Freddy Mallet and Olivier Gaudin
 

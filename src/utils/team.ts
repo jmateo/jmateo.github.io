@@ -31,19 +31,17 @@ function getTeamMemberId(name: string): string {
 }
 
 function loadTeamMemberDescription(locale: string, memberId: string): string | undefined {
-  const contentDir = path.join(process.cwd(), 'src', 'content', 'speakers');
+  const contentDir = path.join(process.cwd(), 'src', 'content', 'team');
 
   try {
-    const files = fs.readdirSync(contentDir);
-    const pattern = new RegExp(`^${locale}-.*-${memberId}\\.md$`);
-    const matchedFile = files.find((f) => pattern.test(f));
+    const fileName = `${locale}-${memberId}.md`;
+    const filePath = path.join(contentDir, fileName);
 
-    if (!matchedFile) return undefined;
+    if (!fs.existsSync(filePath)) return undefined;
 
-    const filePath = path.join(contentDir, matchedFile);
     const content = fs.readFileSync(filePath, 'utf-8');
-
     const match = content.match(/^---[\s\S]*?---\s*([\s\S]*)$/);
+
     if (match) {
       return match[1].trim();
     }
@@ -73,8 +71,16 @@ export function getTeam(locale: string = 'en'): TeamSection[] {
         description: 'Handles operational organization, speaker coordination, website maintenance and community communication',
         members: [
           { name: 'Evgeny Mandrikov', role: '', section: 'Crew' },
-          { name: 'Margarita Nedzelska', role: '', section: 'Crew' },
           { name: 'Julia Mateo', role: '', section: 'Crew' },
+          { name: 'Margarita Nedzelska', role: '', section: 'Crew' },
+          { name: 'Valerie Sevel', role: '', section: 'Crew' },
+        ],
+      },
+      {
+        title: 'Activator',
+        description: 'Drives initiatives and supports the community',
+        members: [
+          { name: 'Xavier Bourguignon', role: '', section: 'Activator' },
         ],
       },
     ],
@@ -92,8 +98,16 @@ export function getTeam(locale: string = 'en'): TeamSection[] {
         description: 'Gère l\'organisation opérationnelle, la coordination des intervenants, la maintenance du site et la communication communautaire',
         members: [
           { name: 'Evgeny Mandrikov', role: '', section: 'Crew' },
-          { name: 'Margarita Nedzelska', role: '', section: 'Crew' },
           { name: 'Julia Mateo', role: '', section: 'Crew' },
+          { name: 'Margarita Nedzelska', role: '', section: 'Crew' },
+          { name: 'Valerie Sevel', role: '', section: 'Crew' },
+        ],
+      },
+      {
+        title: 'Activateur',
+        description: 'Anime les initiatives et soutient la communauté',
+        members: [
+          { name: 'Xavier Bourguignon', role: '', section: 'Activateur' },
         ],
       },
     ],
