@@ -1,0 +1,120 @@
+import fs from 'fs';
+import path from 'path';
+
+interface TeamMember {
+  name: string;
+  role: string;
+  section: string;
+  image?: string;
+  description?: string;
+  id?: string;
+}
+
+interface TeamSection {
+  title: string;
+  description: string;
+  members: TeamMember[];
+}
+
+function nameToImageFilename(name: string): string {
+  return name
+    .toLowerCase()
+    .replace(/\s+/g, '_')
+    .replace(/[éèê]/g, 'e')
+    .replace(/[àâ]/g, 'a')
+    .replace(/[ôö]/g, 'o')
+    .replace(/[ç]/g, 'c');
+}
+
+function getTeamMemberId(name: string): string {
+  return nameToImageFilename(name);
+}
+
+function loadTeamMemberDescription(locale: string, memberId: string): string | undefined {
+  const contentDir = path.join(process.cwd(), 'src', 'content', 'speakers');
+
+  try {
+    const files = fs.readdirSync(contentDir);
+    const pattern = new RegExp(`^${locale}-.*-${memberId}\\.md$`);
+    const matchedFile = files.find((f) => pattern.test(f));
+
+    if (!matchedFile) return undefined;
+
+    const filePath = path.join(contentDir, matchedFile);
+    const content = fs.readFileSync(filePath, 'utf-8');
+
+    const match = content.match(/^---[\s\S]*?---\s*([\s\S]*)$/);
+    if (match) {
+      return match[1].trim();
+    }
+  } catch {
+    return undefined;
+  }
+}
+
+export function getTeam(locale: string = 'en'): TeamSection[] {
+  const imagesDir = path.join(process.cwd(), 'public', 'team');
+  const imageFiles = new Set(
+    fs.readdirSync(imagesDir).map((f: string) => f.replace('.jpg', '').replace('.png', ''))
+  );
+
+  const teamData = {
+    en: [
+      {
+        title: 'Board',
+        description: 'Responsible for legal and administrative matters',
+        members: [
+          { name: 'Maxime Nowak', role: 'President', section: 'Board' },
+          { name: 'Vincent Sevel', role: 'Treasurer', section: 'Board' },
+        ],
+      },
+      {
+        title: 'Crew',
+        description: 'Handles operational organization, speaker coordination, website maintenance and community communication',
+        members: [
+          { name: 'Evgeny Mandrikov', role: '', section: 'Crew' },
+          { name: 'Margarita Nedzelska', role: '', section: 'Crew' },
+          { name: 'Julia Mateo', role: '', section: 'Crew' },
+        ],
+      },
+    ],
+    fr: [
+      {
+        title: 'Bureau',
+        description: 'Responsable des questions légales et administratives',
+        members: [
+          { name: 'Maxime Nowak', role: 'Président', section: 'Bureau' },
+          { name: 'Vincent Sevel', role: 'Trésorier', section: 'Bureau' },
+        ],
+      },
+      {
+        title: 'Crew',
+        description: 'Gère l\'organisation opérationnelle, la coordination des intervenants, la maintenance du site et la communication communautaire',
+        members: [
+          { name: 'Evgeny Mandrikov', role: '', section: 'Crew' },
+          { name: 'Margarita Nedzelska', role: '', section: 'Crew' },
+          { name: 'Julia Mateo', role: '', section: 'Crew' },
+        ],
+      },
+    ],
+  };
+
+  const sections = teamData[locale as keyof typeof teamData] || teamData.en;
+
+  return sections.map((section) => ({
+    ...section,
+    members: section.members.map((member) => {
+      const imageFilename = nameToImageFilename(member.name);
+      const memberId = getTeamMemberId(member.name);
+      const hasImage = imageFiles.has(imageFilename);
+      const description = loadTeamMemberDescription(locale, memberId);
+
+      return {
+        ...member,
+        image: hasImage ? `/team/${imageFilename}.jpg` : undefined,
+        description,
+        id: memberId,
+      };
+    }),
+  }));
+}

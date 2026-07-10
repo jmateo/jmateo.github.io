@@ -1,0 +1,201 @@
+---
+import Header from '../../components/Header.astro';
+import { getTeam } from '../../utils/team';
+
+interface Props {
+  params: { slug: string };
+}
+
+const { slug } = Astro.params;
+const teamSections = getTeam('en');
+let teamMember;
+
+for (const section of teamSections) {
+  const member = section.members.find(m => m.id === slug);
+  if (member) {
+    teamMember = member;
+    break;
+  }
+}
+
+if (!teamMember) {
+  return Astro.redirect('/404');
+}
+
+export async function getStaticPaths() {
+  const teamSections = getTeam('en');
+  const members = teamSections.flatMap(s => s.members);
+  return members.map(member => ({
+    params: { slug: member.id },
+  }));
+}
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{teamMember.name} - GenevaJUG</title>
+    <link rel="icon" type="image/png" href="/apple_touch_icon.png" />
+    <link rel="apple-touch-icon" href="/apple_touch_icon.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root[data-theme='light'] {
+        --bg-primary: #ffffff;
+        --bg-secondary: #f0f0f0;
+        --text-primary: #000000;
+        --text-secondary: #333333;
+        --text-muted: #666666;
+        --border-color: #e0e0e0;
+      }
+
+      :root[data-theme='dark'] {
+        --bg-primary: #1a1a1a;
+        --bg-secondary: #2a2a2a;
+        --text-primary: #ffffff;
+        --text-secondary: #cccccc;
+        --text-muted: #999999;
+        --border-color: #444444;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          'Helvetica Neue', Arial, sans-serif;
+        line-height: 1.6;
+        background: var(--bg-primary);
+        color: var(--text-secondary);
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      .back-link {
+        display: inline-block;
+        margin-bottom: 2rem;
+        color: #007bff;
+        text-decoration: none;
+        font-size: 0.95rem;
+      }
+
+      .back-link:hover {
+        text-decoration: underline;
+      }
+
+      .team-detail {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .team-header {
+        display: flex;
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .team-image-section {
+        flex-shrink: 0;
+      }
+
+      .team-image-section img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+
+      .team-info-section {
+        flex: 1;
+      }
+
+      .team-detail h1 {
+        font-size: 2rem;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .team-role {
+        font-size: 1.1rem;
+        color: var(--text-muted);
+        margin-bottom: 1.5rem;
+        font-weight: 500;
+      }
+
+      .team-bio {
+        font-size: 0.95rem;
+        line-height: 1.8;
+        color: var(--text-secondary);
+        margin-bottom: 1.5rem;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 1rem;
+        }
+
+        .team-detail {
+          padding: 1.5rem;
+        }
+
+        .team-header {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .team-image-section img {
+          width: 150px;
+          height: 150px;
+        }
+
+        .team-detail h1 {
+          font-size: 1.5rem;
+          text-align: center;
+        }
+
+        .team-role {
+          text-align: center;
+        }
+
+        .team-info-section {
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <Header locale={'en'} />
+
+    <div class="container">
+      <a href="/#team" class="back-link">
+        ← Back to Team
+      </a>
+
+      <div class="team-detail">
+        <div class="team-header">
+          {teamMember.image && (
+            <div class="team-image-section">
+              <img src={teamMember.image} alt={teamMember.name} />
+            </div>
+          )}
+          <div class="team-info-section">
+            <h1>{teamMember.name}</h1>
+            {teamMember.role && <div class="team-role">{teamMember.role}</div>}
+            <div class="team-bio">{teamMember.description}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
