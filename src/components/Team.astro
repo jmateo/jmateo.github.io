@@ -1,0 +1,211 @@
+---
+import { getTeam } from '../utils/team';
+
+interface Props {
+  locale: 'en' | 'fr';
+}
+
+const { locale } = Astro.props;
+const team = getTeam(locale);
+
+const titles = {
+  en: 'Team',
+  fr: 'Équipe',
+};
+
+const title = titles[locale];
+---
+
+<section id="team" class="team">
+  <div class="container">
+    <h2>{title}</h2>
+    {team.map((section) => (
+      <div class="team-section">
+        <h3>{section.title}</h3>
+        <p class="section-description">{section.description}</p>
+        <div class="team-members">
+          {section.members.map((member) => (
+            member.description ? (
+              <a href={locale === 'en' ? `/team/${member.id}` : `/fr/team/${member.id}`} class="member-card-link">
+                <article class="member-card">
+                  {member.image && (
+                    <div class="member-image-wrapper">
+                      <img src={member.image} alt={member.name} class="member-image" />
+                    </div>
+                  )}
+                  <h4 class="member-name">{member.name}</h4>
+                  {member.role && <p class="member-role">{member.role}</p>}
+                </article>
+              </a>
+            ) : (
+              <article class="member-card">
+                {member.image && (
+                  <div class="member-image-wrapper">
+                    <img src={member.image} alt={member.name} class="member-image" />
+                  </div>
+                )}
+                <h4 class="member-name">{member.name}</h4>
+                {member.role && <p class="member-role">{member.role}</p>}
+              </article>
+            )
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .team {
+    scroll-margin-top: 80px;
+    padding: 4rem 2rem;
+    background: var(--bg-primary);
+    overflow-x: hidden;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: var(--text-primary);
+    text-align: center;
+  }
+
+  .team-section {
+    margin-bottom: 4rem;
+  }
+
+  .team-section h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+  }
+
+  .section-description {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .team-members {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .member-card-link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .member-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .member-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+
+  :root[data-theme='dark'] .member-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .member-card-link:hover .member-card {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+
+  :root[data-theme='dark'] .member-card-link:hover .member-card {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .member-image-wrapper {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 0.75rem;
+    overflow: hidden;
+    background: var(--bg-primary);
+    border-radius: 8px;
+  }
+
+  .member-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .member-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: var(--text-primary);
+  }
+
+  .member-role {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .team {
+      padding: 2rem 1rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .team-section h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-description {
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .team-members {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .member-card {
+      padding: 1rem;
+    }
+
+    .member-image-wrapper {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 0.75rem;
+    }
+
+    .member-name {
+      font-size: 0.95rem;
+    }
+
+    .member-role {
+      font-size: 0.8rem;
+    }
+  }
+</style>

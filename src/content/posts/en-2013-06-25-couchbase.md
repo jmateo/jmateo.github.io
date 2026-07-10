@@ -10,6 +10,6 @@ Once this introduction is complete, you will see in detail the Couchbase Server 
 * Java application development (and/or others according to taste) on NoSQL by explaining the benefits of solutions
 * based on flexible data structures (JSON Documents)
 * the use of Map Reduce for creating complex queries
-* the setup and administration of a cluster, and the associated challenges
+* the setup and administration of a cluster and the associated challenges
 
 Come discover the joys of NoSQL and “schemaless” development!

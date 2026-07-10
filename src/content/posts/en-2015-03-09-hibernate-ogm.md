@@ -24,7 +24,7 @@ Come discuss and debate.
 
 We will take the rest of the time to discuss other Hibernate projects:
 
-* What is Hibernate Search, and what are the new features?
+* What is Hibernate Search and what are the new features?
 * What’s happening with Hibernate ORM?
 * Hibernate Validator, Bean Validation, what are they?
 * [insert your question here]?

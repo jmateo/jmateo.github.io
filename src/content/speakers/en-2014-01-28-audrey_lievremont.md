@@ -3,7 +3,7 @@ title: Audrey Lièvremont
 locale: en
 ---
 
-Audrey is a developer at AIM. She has 8 years of experience in web projects in Belfort, Grenoble, and Geneva.
+Audrey is a developer at AIM. She has 8 years of experience in web projects in Belfort, Grenoble and Geneva.
 
 A technology enthusiast, married to a geek and mother of two children (future geeks?), she is passionate about development and loves Java User Groups and Human Talks.
 

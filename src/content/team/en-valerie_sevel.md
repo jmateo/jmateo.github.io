@@ -1,0 +1,1 @@
+Enthusiastic software developer since 1994, currently working as an API Engineer at ISO, with a culture of continuous improvement.  I  help organize events for GenevaJUG and Devoxx4Kids, supporting the local developer community and hopefully inspiring the next generation of developers ;-)
