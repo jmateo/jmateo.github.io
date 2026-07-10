@@ -14,7 +14,7 @@ eventbriteid: 705426960027
 
 locale: en
 ---
- It's 2023, and many developers out there have certainly heard about Quarkus, which is a very competitive contender in the space of server-side Java development frameworks. 
+ It's 2023 and many developers out there have certainly heard about Quarkus, which is a very competitive contender in the space of server-side Java development frameworks. 
  However, companies are somewhat hesitant to look deeper into it. On the one hand, there are a few misconceptions about Quarkus out there and on the other hand, developers are somewhat afraid that they need to (re-)learn everything from scratch to make use of Quarkus.
 
 This session starts by giving a very brief overview of Quarkus and then focuses on discussing how certain concepts and conventions familiar to Spring developers map to Quarkus. 

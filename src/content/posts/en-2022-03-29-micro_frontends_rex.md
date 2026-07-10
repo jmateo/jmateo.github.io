@@ -18,6 +18,6 @@ The GenevaJUG welcomes **Hugo Chiavenuto** who will present a case study on impl
 
 Agility and microservices have taught us to decouple, but our users want a unified experience and platform. Would the Micro Frontends approach finally be the solution to reconcile the two? Having autonomous and independent teams that would provide graphical elements assembled together to form our applications. And if we went further, a complete ecosystem where we could make application composition unique and customizable for and by each user? Based on a client-side composed Micro Frontend approach, with module federation of Webpack and the Angular framework as the cornerstone, we established and implemented an architecture that allows this.
 
-Through this case study, I propose to explain what the Micro Frontends approach is, its different variations, its advantages, disadvantages, and pitfalls. I will present our journey, the architectural choices we had to make, and the technical solutions provided.
+Through this case study, I propose to explain what the Micro Frontends approach is, its different variations, its advantages, disadvantages and pitfalls. I will present our journey, the architectural choices we had to make and the technical solutions provided.
 
 This session will be held in French.

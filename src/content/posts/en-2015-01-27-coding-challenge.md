@@ -15,4 +15,4 @@ To celebrate the 5th anniversary of GenevaJUG, we partnered with other user grou
 
 The goal was to develop a small web application (or not!) that allows submitting and selecting Quickies ideas for upcoming User Groups (GenevaJUG or others).
 
-During this anniversary evening, each competition participant will present their application, the technical choices made, and the difficulties encountered (or not ;-), and then we will be able to put the winners’ application into production!
+During this anniversary evening, each competition participant will present their application, the technical choices made and the difficulties encountered (or not ;-) and then we will be able to put the winners’ application into production!

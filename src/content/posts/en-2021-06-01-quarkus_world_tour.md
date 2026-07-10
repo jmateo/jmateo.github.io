@@ -27,7 +27,7 @@ The number of places is limited to 50 so everything goes smoothly, so hurry up a
 
 **Official Quarkus World Tour presentation** :
 
-In the spirit of the times, the Quarkus Team virtually presents a big, loud, and bold, rock & roll mega-stadium tour.
+In the spirit of the times, the Quarkus Team virtually presents a big, loud and bold, rock & roll mega-stadium tour.
 
 For the last 25 years, Java has performed for organizations across the world but you’ve never seen anything like this. We’ll cover all the classics like “Start Me Up” and “Living’ on a VM” and some new jams like “Stairway to Native” and “Sweet JPA of Mine” and more.
 

@@ -17,4 +17,4 @@ GenevaJUG will welcome **Sarah Genoud-Prachex**
 
 The topic of sustainable environment is gaining more and more visibility now-a-days and many experts are of the opinion that it will have as important an impact on enterprises as did the digital revolution. 
 
-The goal of this talk is to present the digital footprint we are constantly leaving and the effect it is having on our environment, and also make some practical suggestions as to where we can concentrate our efforts to minimise this aftermath.
+The goal of this talk is to present the digital footprint we are constantly leaving and the effect it is having on our environment and also make some practical suggestions as to where we can concentrate our efforts to minimise this aftermath.

@@ -20,7 +20,7 @@ To celebrate the JUG’s 10th anniversary, we’ll have 3 sessions!
 ## Teaching Kids to Code? What a Crazy Idea!
 by **Xavier Bourguignon**
 
-Teaching kids to code? What a crazy idea! We’ll see together why this idea is relevant, how we go about teaching programming basics to children between 4 and 10 years old, and everything it could bring you if you get into it!
+Teaching kids to code? What a crazy idea! We’ll see together why this idea is relevant, how we go about teaching programming basics to children between 4 and 10 years old and everything it could bring you if you get into it!
 
 
 ## Beyond Colors: Interfaces Adapted for Colorblindness
@@ -43,7 +43,7 @@ Ten years.
 
 How do we keep initiatives like JUGs or conferences running for ten years? What makes it that ten years later, it still works just as well and even the demand is still stronger? And most importantly, what can we do to make sure that in ten years, these initiatives are still there and have helped improve the well-being of the greatest number of people, not just ours?
 
-In this keynote, I would like to look at what makes the essence of our communities, and suggest ways to use the strength of these communities, the energy and values that are their foundations in order to contribute, on our scale, to something even greater, something that benefits the greatest number. Because if there’s one thing we know how to do, it’s share. So why limit ourselves to technology? Why not take the opportunity to get involved in everything that makes us human and try to share what works for us to apply it in other fields?
+In this keynote, I would like to look at what makes the essence of our communities and suggest ways to use the strength of these communities, the energy and values that are their foundations in order to contribute, on our scale, to something even greater, something that benefits the greatest number. Because if there’s one thing we know how to do, it’s share. So why limit ourselves to technology? Why not take the opportunity to get involved in everything that makes us human and try to share what works for us to apply it in other fields?
 
 So that in ten years, we are still there, even more motivated and even richer in value than ever!   
 

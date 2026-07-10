@@ -21,7 +21,7 @@ by **Margarita Nedzelska**
 
 You’ve probably heard about Static Code Analysis tools provided by SonarSource, but have you ever thought about what’s under the hood of these analyzers?
 
-Some time ago we decided to bring the support of the Kotlin language to the next level. Of course, our story was full of different challenges. How to implement a good analyzer on top of an already existing one, how to support all the Kotlin language features, how to track and balance performance, precision, and memory consumption, how to investigate OutOfMemory errors, detect memory leaks on the user’s side, and many other interesting topics.
+Some time ago we decided to bring the support of the Kotlin language to the next level. Of course, our story was full of different challenges. How to implement a good analyzer on top of an already existing one, how to support all the Kotlin language features, how to track and balance performance, precision and memory consumption, how to investigate OutOfMemory errors, detect memory leaks on the user’s side and many other interesting topics.
 
 In this presentation, you will learn how Sonar can help you to write Kotlin code. We will also try to get to the bottom of this mystery by looking at what’s under the hood of our Kotlin Analyzer.
 
