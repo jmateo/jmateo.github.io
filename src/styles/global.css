@@ -32,3 +32,11 @@ div[style*="text-align: center"] img {
   height: auto;
   display: block;
 }
+
+/* Session card images - override to use fixed dimensions */
+.session-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
