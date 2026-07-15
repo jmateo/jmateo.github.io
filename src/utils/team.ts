@@ -71,6 +71,7 @@ export function getTeam(locale: string = 'en'): TeamSection[] {
         description: 'Handles operational organization, speaker coordination, website maintenance and community communication',
         members: [
           { name: 'Andréas Crétois', role: '', section: 'Crew' },
+          { name: 'Ludovic Bertin', role: '', section: 'Crew' },
           { name: 'Evgeny Mandrikov', role: '', section: 'Crew' },
           { name: 'Julia Mateo', role: '', section: 'Crew' },
           { name: 'Margarita Nedzelska', role: '', section: 'Crew' },
@@ -99,6 +100,7 @@ export function getTeam(locale: string = 'en'): TeamSection[] {
         description: 'Gère l\'organisation opérationnelle, la coordination des intervenants, la maintenance du site et la communication communautaire',
         members: [
           { name: 'Andréas Crétois', role: '', section: 'Crew' },
+          { name: 'Ludovic Bertin', role: '', section: 'Crew' },
           { name: 'Evgeny Mandrikov', role: '', section: 'Crew' },
           { name: 'Julia Mateo', role: '', section: 'Crew' },
           { name: 'Margarita Nedzelska', role: '', section: 'Crew' },
